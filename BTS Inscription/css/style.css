@@ -38,6 +38,38 @@ body{
     justify-content: space-around;
     margin-top: 3em;
 }
+.row-1{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    padding-bottom: 3em;
+    max-width: 1200px;
+}
+.col-1, .col-2{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+.col-1 div{
+    padding: 2em 0;
+}
+@media screen and (max-width:850px){
+    .row-1{
+        flex-direction: column;
+        padding: 0 1em;
+        
+    }
+    .col-2{
+        display: none;
+    }
+    .col-1{
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        
+    }
+}
 /****************************
     Typography
 ****************************/
@@ -85,7 +117,7 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-@media screen and (max-width:750px){
+@media screen and (max-width:850px) {
     nav {
         flex-direction: column;
         justify-content: space-around;
@@ -129,38 +161,7 @@ nav li > a:hover{
 }
 
 /* Presentation text */
-.row-1{
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    align-items: center;
-    padding-bottom: 3em;
-    max-width: 1200px;
-}
-.col-1, .col-2{
-    display: flex;
-    flex-direction: column;
-    width: 45%;
-}
-.col-1 div{
-    padding: 2em 0;
-}
-@media screen and (max-width:750px){
-    .row-1{
-        flex-direction: column;
-        padding: 0 1em;
-        
-    }
-    .col-2{
-        display: none;
-    }
-    .col-1{
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        
-    }
-}
+
 /****************************
     Main content
 ****************************/
@@ -175,7 +176,7 @@ nav li > a:hover{
 .element img {
     width : 50%;
 }
-@media screen and (max-width:750px) {
+@media screen and (max-width:850px) {
     .main-content-2{
         margin-top: 3em;
     }
@@ -222,7 +223,7 @@ nav li > a:hover{
 .subscribe-field div h1 {
     margin: 0em;
 }
-@media screen and (max-width:750px){
+@media screen and (max-width:850px){
     .subscribe-field {
         background-color: #ffff;
         position: none;
@@ -328,7 +329,7 @@ ol, li {
     color: black;
     font-style: italic;
   }
-  @media screen and (max-width:750px){
+  @media screen and (max-width:850px){
       .carousel{
           display: none;
         }
