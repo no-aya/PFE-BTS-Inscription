@@ -1,0 +1,402 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.azure-button{
+    padding: 1em 2em;
+    background-color:#79D2FB ;
+    border-radius: 50px;
+    box-shadow: 0px 4px 13px 2px rgba(0,0,0,0.2);
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+.azure-button:hover {
+    box-shadow: none;
+}
+/****************************
+    Layout
+****************************/
+.main-container {
+    padding :1em;
+    background-image: url("../images/Background-menu.jpg");
+}
+.main-content {
+    padding :3em 1em;
+}
+.main-content-1{
+    background-image: url("../images/containtBg.png");
+    background-repeat: no-repeat;
+}
+@media screen and (max-width:750px) {
+    .main-content-1 img {
+        display: none;
+    }
+}
+.credits{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3em;
+}
+/****************************
+    Typography
+****************************/
+body{
+    font-family: 'Raleway', sans-serif;
+}
+nav {
+    font-weight: 500;
+    color: white;
+}
+h1{
+    font-weight: 700;
+}
+.main-container, .subscribe-field{
+    color : white;
+}
+.main-content{
+    color: black;
+}
+.element{
+    text-align: center;
+    font-size: 0.8rem;
+}
+.element h2 {
+    font-weight: 900;
+}
+.credits{
+    color: rgba(0,0,0,0.2);
+    font-size: 0.7rem;
+}
+/****************************
+    Header
+****************************/
+
+.header{
+    margin-left: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+/* Navigation bar */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width:750px){
+    nav {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    nav li {
+        margin: 0 1em;
+    }
+    
+}
+nav img{
+    height: 5em;
+}
+nav ul{ 
+    list-style: none;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+nav li {
+    margin-left: 2em;
+    margin-right: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: .25em 0;
+}
+nav li > a:hover{
+    transition: 200ms;
+    color: #79D2FB;
+}
+
+.active-page {
+    border-bottom: 1px solid white;
+}
+.active-page:hover, .azure-button:hover>a {
+    color : white;
+}
+
+/* Presentation text */
+.row-1{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    padding-bottom: 3em;
+    max-width: 1200px;
+}
+.col-1, .col-2{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+.col-1 div{
+    padding: 2em 0;
+}
+@media screen and (max-width:750px){
+    .row-1{
+        flex-direction: column;
+        padding: 0 1em;
+        
+    }
+    .col-2{
+        display: none;
+    }
+    .col-1{
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        
+    }
+}
+/****************************
+    Main content
+****************************/
+
+.element{
+    margin: 0 auto;
+    width : 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.element img {
+    width : 50%;
+}
+@media screen and (max-width:750px) {
+    .main-content-2{
+        margin-top: 3em;
+    }
+    .element{
+        width :100%;
+        flex-direction: row;
+        text-align: start;
+    }
+    .element img {
+        width : 20%;
+        padding: 0em 1em;
+    }
+}
+
+/****************************
+    Mailing Input
+****************************/
+/* Stylish banner*/
+.stylish-banner{
+    padding: 0em;
+    max-width: 1200px;
+    align-items: flex-start;
+}
+
+/* Email Field */
+.subscribe-field {
+    background-color: #0070BE ;
+    border-radius: 6.25em;
+    width : 70%;
+    align-items: center;
+    position:relative;
+    top : -5em;
+}
+.subscribe-field div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #79D2FB ;
+    padding: 3em;
+    margin: auto 0;
+    border-radius: 6.25em;
+    height: 100%;
+}
+.subscribe-field div h1 {
+    margin: 0em;
+}
+@media screen and (max-width:750px){
+    .subscribe-field {
+        background-color: #ffff;
+        position: none;
+        top : 0em;
+    }
+    .subscribe-field div {
+        padding: 0 em;
+        margin: 0 0 ;
+        border-radius: 6.25em;
+        height: 100%;
+    }
+}
+
+/* Email Input */
+.c-formContainer,
+.c-form {
+    width: 100%;
+    height: 3.25em;
+    font-size: 0.9rem;
+}
+.c-formContainer {
+    font-weight: 700;
+}
+.c-form{
+    border-radius: 6.25em;
+    background-color: white;
+    transition: 0.2s;
+    border-radius: 5em;
+    box-sizing: border-box;
+    box-shadow: 0 0.125em 0.3125em rgba(0,0,0 , 0.3);
+    display: flex;
+    justify-content: center;  
+}
+.c-form__input,
+.c-form__button {
+    font: inherit;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+.c-form__input {
+    border-radius: 6.25em;
+    color: #0070BE;
+    height: 100%;
+    width: 100%;
+    padding: 0 2em;
+}
+::placeholder {
+    color: rgba(0,0,0 , 0.3);
+    font-style: italic;
+}
+.c-form__button {
+    height: 100%;
+    width: 5em;
+    border-top-right-radius: 6.25em;
+    border-bottom-right-radius: 6.25em;
+    background-color: #0070BE;
+}
+.c-form__button img{
+    width: 30%;
+}
+
+/*Carousel text*/
+@keyframes tonext {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: 100%;
+    }
+    98% {
+      left: 100%;
+    }
+    99% {
+      left: 0;
+    }
+  }
+  
+  @keyframes tostart {
+    75% {
+      left: 0;
+    }
+    95% {
+      left: -100%;
+    }
+    98% {
+      left: -100%;
+    }
+    99% {
+      left: 0;
+    }
+  }
+ol, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .carousel {
+    position: relative;
+    padding: 3em;
+    margin-top: 3em;
+    color: black;
+    font-style: italic;
+  }
+  @media screen and (max-width:750px){
+      .carousel{
+          display: none;
+        }
+  }
+
+  
+  .carousel__viewport {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    overflow-x: scroll;
+    counter-reset: item;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+  .carousel__viewport::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .carousel__slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+    height: 50%;
+    counter-increment: item;
+
+  }
+
+  .carousel__slide span{
+    color: #0070BE;
+  }
+    .carousel__slide:last-child{
+      animation-name: tonext;
+    }
+    .carousel__slide:first-child{
+        animation-name: tostart;
+    }
+  
+  .carousel__navigation {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+  }
+  
+  .carousel__navigation-list,
+  .carousel__navigation-item {
+    display: inline-block;
+  }
+  
+  .carousel__navigation-button {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-color: rgba(0,0,0 , 0.3);
+    background-clip: content-box;
+    border: 0.25rem solid transparent;
+    border-radius: 50%;
+    font-size: 0;
+    transition: transform 0.1s;
+  }
+  .carousel__navigation-button:hover{
+      background-color:  #0070BE;
+  }
+
+  

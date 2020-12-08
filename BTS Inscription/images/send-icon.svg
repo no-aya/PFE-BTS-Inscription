@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31" height="32" viewBox="0 0 31 32">
+  <defs>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 20 21">
+      <image width="20" height="21" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAABQUlEQVQ4ja1VC20DMQx9G4NQCIUOQimkEI7CUTgKHYQbhKNwg9BByCB4smR3r5aXalufFLWK7Rc/f3RPIoIHYDaKVyjhP04TkYt8Y/8rWdVgIrqSZs6jU0TkHIgm85ffZjiLSLdA/V3I1ux+ywLjaUHeapmy32S25XnQ4ApgtXMA8A7gBcDJ7DuARr6KzyyjYnK4TjPZDya5U6ab+basTpdQp5KQCTUDFFO5qLFONXnMcQ42TwAI8nYjzzLnEsSs/R4gxzkhQpg7SR70kVmd0KV2C3apxZwYUSpnvzhhtcBOgXuoqd+NFDQn5HGZw7IzjgkZd/gYCTMZjC2pHxNiRMiFjk3xQfdO35RjtHqKDwDF/r/Z+umaLQA6gM1s7nM3Q5fDs5c18bo1PxH6sDqyhugD+vCNbfRNUWmTyVS59wHgC7rRi1eAJ/G2AAAAAElFTkSuQmCC"/>
+    </pattern>
+  </defs>
+  <rect id="send_icon" data-name="send icon" width="31" height="32" fill="url(#pattern)"/>
+</svg>
