@@ -28,6 +28,13 @@ body{
     background-image: url("../images/containtBg.png");
     background-repeat: no-repeat;
 }
+.main-content-3{
+    display: grid;
+    justify-content: space-around;
+    flex-direction: column;
+    background-image: url("../images/Background-wide.png");
+    background-repeat: no-repeat;
+}
 @media screen and (max-width:750px) {
     .main-content-1 img {
         display: none;
@@ -37,6 +44,11 @@ body{
     display: flex;
     justify-content: space-around;
     margin-top: 3em;
+}
+@media screen and (max-width : 700px){
+    .credits{
+        margin-top: 8em;
+    } 
 }
 .row-1{
     display: flex;
@@ -70,6 +82,28 @@ body{
         
     }
 }
+.grid-container{
+    display: grid;
+    justify-self: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 3%;
+
+}
+@media screen and (max-width : 1100px){
+    .grid-container{
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media screen and (max-width : 700px){
+    .grid-container{
+        grid-template-columns: repeat(1, 1fr); 
+        grid-template-rows: repeat(4, 1fr); 
+        grid-gap: 1%;
+    }
+}
+
 /****************************
     Typography
 ****************************/
@@ -159,8 +193,6 @@ nav li > a:hover{
 .active-page:hover, .azure-button:hover>a {
     color : white;
 }
-
-/* Presentation text */
 
 /****************************
     Main content
@@ -315,7 +347,7 @@ nav li > a:hover{
     99% {
       left: 0;
     }
-  }
+}
 ol, li {
     list-style: none;
     margin: 0;
@@ -400,4 +432,129 @@ ol, li {
       background-color:  #0070BE;
   }
 
+/****************************
+   Page main title
+****************************/
+.page-title{
+    width: 100%;
+    margin-bottom: 1em;
+    text-align: center;
+    font-size: 5em;
+    font-weight: bolder;
+    color: #1E6C93;
+}
+/****************************
+    Flip card
+****************************/
+  /* The flip card container*/
+.flip-card{
+    background-color: transparent;
+    border-radius: 16px;
+    width: 20em;
+    height: 35em;
+    perspective: 1000px;
+}
   
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border: 1px solid gray;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    border-radius: 16px;
+    background-color: #fff;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    border-radius: 16px;
+    background-color: #fff;
+    color: black;
+    transform: rotateY(180deg);
+  }
+  .card-title{
+        border-top-left-radius: 16px;
+        border-top-right-radius : 16px;
+        background-color: #1E6C93;
+        color: #fff;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .flip-card-front > .card-title {
+        height: 50%;
+    }
+  .card-bg-title{
+    font-size: 4rem;
+    font-weight: 1000;
+    color: rgba(255,255,255 , 0.3);
+    text-align: end;
+  }
+  .card-main-title{
+    font-size: 1.5em;
+    font-weight: 900;
+    padding: 1.5em 1.7em;
+    text-align: start;
+  }
+  .card-front-text, .flip-card-back-text{
+    font-size: 0.9em;
+    padding: 1.5em 1.7em;
+    text-align: start;
+  }
+  .card-front-text-aside{
+    font-style: italic;
+    color: gray;
+    margin: 1em 0;
+  }
+  .flip-card-back-text ul{
+      padding-left: 1em;
+  }
+  .flip-card-back-text li{
+    list-style-type: "→ ";
+    list-style-position: outside;
+  }
+  .side-image{
+      grid-column: 2 / 4;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: flex-end;
+      
+  }
+  .side-image img{
+      width: 70%;
+      margin: 0 2em;
+      justify-self: end;
+  }
+  @media screen and (max-width : 1100px){
+    .side-image{
+        display: none;
+    }
+}
+@media screen and (max-width : 700px){
+    .side-image{
+        display: none;
+    }
+}
