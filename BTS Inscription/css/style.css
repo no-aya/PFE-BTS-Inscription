@@ -558,3 +558,49 @@ ol, li {
         display: none;
     }
 }
+
+/****************************
+    Log page
+****************************/
+.main-log-container{
+    height: 70vh;
+    padding: 3em 0;
+    background-image: url("../images/Background-log-wide.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.main-log-container p{
+    color: white;
+}
+.log-section{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+}
+.log-box{
+    display: flex;
+    width: 25%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+@media screen and (max-width:900px){
+    .main-log-container{
+        background: #1E6C93;
+        position: relative;
+        top: 0;
+        right: 0px;
+        bottom: auto;
+        left: 0px;
+        align-items: center;
+    }
+
+    .log-section{
+        justify-content: center;
+    }
+    .log-box{
+        width: 50%;
+    }
+}
