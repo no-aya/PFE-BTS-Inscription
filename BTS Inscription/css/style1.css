@@ -1,0 +1,118 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+.main-container {
+    padding :1em;
+    background-image: url("../images/Background-menu.jpg");
+}
+.header{
+    margin-left: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media screen and (max-width:850px) {
+    nav {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    nav li {
+        margin: 0 1em;
+    }
+    
+}
+nav img{
+    height: 5em;
+}
+nav ul{ 
+    list-style: none;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+nav li {
+    margin-left: 2em;
+    margin-right: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: .25em 0;
+}
+nav li > a:hover{
+    transition: 200ms;
+    color: #79D2FB;
+}
+.azure-button{
+    padding: 1em 2em;
+    background-color:#79D2FB ;
+    border-radius: 50px;
+    box-shadow: 0px 4px 13px 2px rgba(0,0,0,0.2);
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+.stl{color:steelblue;
+    font-size:60px;
+    text-align: center;}
+.container{
+    background-image: url("../images/containtBg.png");
+    background-repeat: no-repeat;
+}
+.Box{
+  display: flex;
+}
+.Box .Boximg{
+    padding-right: 90px;
+}
+.content{
+    padding-top: 90px;
+    
+}
+.Boximg{
+    
+    padding-left: 400px;
+    padding-top: 50px;
+}
+.Boximg img{
+    border-radius: 60px 60px 60px 60px;
+}
+.content .text{
+    color: royalblue;
+}
+@media screen and (max-width:750px) {
+    .Box .Boximg {
+        display: none;}
+
+tr td:first-child{
+    padding-right: 20px;
+}
+tr tr{
+    padding-top: 20px
+}
+
+}
+@media screen and (max-width:850px){
+    .container{
+        flex-direction: column;
+        padding: 0 1em;}
+}
+.cop{
+    padding-left: 600px;
+    padding-top: 60px;
+    justify-content: space-around;
+    color: rgba(0,0,0,0.3);
+    font-size: 20px;
+   
+}
