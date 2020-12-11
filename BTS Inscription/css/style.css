@@ -442,6 +442,7 @@ ol, li {
     font-size: 5em;
     font-weight: bolder;
     color: #1E6C93;
+    text-transform: uppercase;
 }
 /****************************
     Flip card
@@ -602,5 +603,53 @@ ol, li {
     }
     .log-box{
         width: 50%;
+    }
+}
+
+/****************************
+    Map box
+****************************/
+.coordinates-box{
+    height: 50vh;
+    max-width: 1200px;
+    display: grid;
+    padding: 2em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-flow: column;
+    gap: 1%;
+    align-items: flex-end;
+    justify-items: center;
+}
+.map-box{
+    border: 2px solid #1E6C93;
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+}
+.coordinates-box table{
+    margin: 0 0.5em;
+    text-align: left;
+}
+.coordinates-box table th, td{
+    padding:0.5em 0;
+}
+th{
+    width: 20%;
+    color: #1E6C93 ;
+    font-weight: bolder;
+}
+@media screen and (max-width:900px){
+    .coordinates-box{
+        height: 70vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .coordinates-box table th, td{
+        width: 100%;
+        display: block;
+    }
+    .map-box{
+        height: 20vh;
     }
 }
