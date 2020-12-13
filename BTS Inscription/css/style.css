@@ -653,3 +653,65 @@ th{
         height: 20vh;
     }
 }
+
+/****************************
+    Numered content
+****************************/
+.numered-content{
+    display: flex;
+    align-items: center;
+    margin: 2em 0em;
+    padding-right :2em;
+}
+.number {
+    display: flex;
+    justify-content: center;
+    width: 70vh;
+}
+.text{
+    width: 70%;
+}
+.higlighted-link{
+    text-decoration: none;
+    margin: 0.3em 0;
+    font-size: 1.4rem;
+    font-weight: 900;
+    color :#1E6C93;
+    display: block;
+}
+.numered-content-2{
+    padding-left: 7em;
+    padding-right :0;
+}
+.warning-text{
+    color: red;
+    font-weight: 900;
+}
+.azure-button a {
+    text-decoration: none;
+    color: white;
+}
+.numered-content span {
+    font-weight: bold;
+    color: #1E6C93;
+}
+ol li{
+    margin-left: 3em;
+    list-style-type: decimal;
+}
+@media screen and (max-width:900px){
+    .numered-content{
+        flex-direction: column;
+        text-align: center;
+    }
+    .number{
+        height: 10em;
+    }
+    .numered-content-2 {
+        padding-left: 0em;
+        flex-direction: column-reverse;
+    }
+    ol li{
+        text-align: left;
+    }
+}
