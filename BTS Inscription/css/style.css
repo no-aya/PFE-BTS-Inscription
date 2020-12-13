@@ -63,6 +63,11 @@ body{
     flex-direction: column;
     width: 45%;
 }
+.col--2{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+}
 .col-1 div{
     padding: 2em 0;
 }
@@ -110,6 +115,10 @@ body{
 body{
     font-family: 'Raleway', sans-serif;
 }
+.text--1{
+    font-weight: 700;
+}
+
 nav {
     font-weight: 500;
     color: white;
@@ -393,7 +402,6 @@ ol, li {
     counter-increment: item;
 
   }
-
   .carousel__slide span{
     color: #0070BE;
   }
@@ -652,4 +660,9 @@ th{
     .map-box{
         height: 20vh;
     }
+}
+.lien{
+    text-decoration:dashed;
+    color:#0941da;
+    font-size:22px;
 }
