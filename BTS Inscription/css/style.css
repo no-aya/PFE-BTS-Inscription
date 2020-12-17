@@ -704,8 +704,11 @@ ol li{
         flex-direction: column;
         text-align: center;
     }
-    .number{
-        height: 10em;
+    .number img{
+        width: 30%;
+    }
+    #png-1{
+        width: 4em;
     }
     .numered-content-2 {
         padding-left: 0em;
