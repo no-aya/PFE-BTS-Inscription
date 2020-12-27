@@ -718,3 +718,6 @@ ol li{
         text-align: left;
     }
 }
+button:hover{
+    cursor: pointer;
+}
