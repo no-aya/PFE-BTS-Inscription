@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/form.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/747be4e5aa.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
     
     <title>Formulaire</title>
@@ -55,13 +56,13 @@
                                             <h2 class="steps">Étape 1 - 4</h2>
                                         </div>
                                     </div> 
-                                    <label class="fieldlabels">Nom : *</label> <input type="text" name="lname" placeholder="Nom" /> 
-                                    <label class="fieldlabels">Prénom: *</label> <input type="text" name="fname" placeholder="Prénom" /> 
-                                    <label class="fieldlabels">Email: *</label> <input type="email" name="email" placeholder="Email" /> 
-                                    <label class="fieldlabels">Date de naissance: *</label> <input type="date" name="birthday" /> 
-                                    <label class="fieldlabels">CINE: *</label> <input type="text" name="cine" placeholder="Nº carte nationale" />
-                                    <label class="fieldlabels">Adresse: *</label> <input type="text" name="adresse" placeholder="Où habitez-vous?" />
-                                    <label class="fieldlabels">Ville: *</label> 
+                                    <label class="fieldlabels" >Nom : *<span class="error-message"></span> <i class="fas fa-exclamation-circle"></i></label><input type="text" name="lname" placeholder="Nom" />
+                                    <label class="fieldlabels">Prénom: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="fname" placeholder="Prénom" /> 
+                                    <label class="fieldlabels">Email: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="email" name="email" placeholder="Email" /> 
+                                    <label class="fieldlabels">Date de naissance: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="birthday" placeholder="jj/mm/aaaa"/> 
+                                    <label class="fieldlabels">CINE: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="cine" placeholder="Nº carte nationale" /> 
+                                    <label class="fieldlabels">Adresse: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="adresse" placeholder="Où habitez-vous?" />
+                                    <label class="fieldlabels">Ville: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> 
                                     <select name="ville" id="ville">
                                         <option value="Marrakech">Marrakech</option>
                                         <option value="Safi">Safi</option>
@@ -81,7 +82,7 @@
                                             <h2 class="steps">Étape 2 - 4</h2>
                                         </div>
                                     </div> 
-                                    <label class="fieldlabels">Année d'obtention : *</label> <input type="number" name="bacyear" placeholder="aaaa" pattern="20[0-9][0-9]"/> 
+                                    <label class="fieldlabels">Année d'obtention : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="number" name="bacyear" placeholder="aaaa" pattern="20[0-9][0-9]"/> 
                                     <label class="fieldlabels">Type de bac: *</label> 
                                     <select name="bactype" id="bactype">
                                         <option value="svt">Sciences de la Vie et de la Terre</option>
@@ -90,20 +91,21 @@
                                         <option value="smb">Sciences Maths B</option>
                                         <option value="se">Sciences Economiques</option>
                                         <option value="tgc">Techniques de Gestion et de Comptabilité</option>
-                                        <option value="sa">Sciences agronomiques</option>
+                                        <option value="sa">Sciences Agronomiques</option>
                                         <option value="ste">Sciences et Technologies Electriques</option>
                                         <option value="stm">Sciences et Technologies Mécaniques</option>
                                     </select>
-                                    <label class="fieldlabels">Note générale: *</label> <input type="number" name="note" placeholder="Note du bac" pattern="[0-2][0-9].[0-9][0-9]"/> 
-                                    <label class="fieldlabels">Mention: *</label> 
+                                    <label class="fieldlabels">Note générale: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="number" name="note" placeholder="Note du bac" pattern="[0-2][0-9].[0-9][0-9]"/> 
+                                    <label class="fieldlabels">Mention: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> 
                                     <select name="bacmention" id="bacmention">
                                         <option value="tb">Très bien</option>
                                         <option value="bi">Bien</option>
                                         <option value="ab">Assez-bien</option>
                                         <option value="pas">Passables</option>
+                                        <option value="ad">Admis</option>
                                     </select>
-                                    <label class="fieldlabels">Scannez votre image :</label> <input type="file" name="pic" accept="image/*"> 
-                                    <label class="fieldlabels">Scannez votre bac :</label> <input type="file" name="pic" accept="image/* pdf/*">
+                                    <label class="fieldlabels">Scannez votre image :<span class="error-message"></span><i class="fas fa-exclamation-circle" ></i></label> <input type="file" name="pic" class="files"> 
+                                    <label class="fieldlabels">Scannez votre bac :<span class="error-message"></span><i class="fas fa-exclamation-circle" ></i></label> <input type="file" name="pic"  class="files">
                                 </div> <input type="button" name="next" class="next action-button" value="Suivant" /> 
                                 <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
                             </fieldset>
@@ -175,7 +177,9 @@
             <p>© 2020 Centre des BTS - Lycée Mohammed VI . Azli - Marrakech</p>
         </div>
     </div>
+    
     <script src="../js/jquery-3.5.1.min.js"></script>
     <script src="../js/form.js"></script>
+    
 </body>
 </html>
