@@ -208,6 +208,7 @@ p {
 
 .fit-image {
     width: 20%;
+    margin-top: 5%;
     object-fit: cover
 }
 .success-card{
@@ -217,4 +218,22 @@ p {
 }
 .page-title {
     font-size: 3em;
+}
+
+.fas{
+    position: absolute;
+    right : 5px;
+    color: #e74c3c;
+    visibility: hidden;
+}
+#msform input.error {
+    border:2px solid #e74c3c;
+}
+.error.fas {
+    visibility: visible;
+}
+.error-message{
+    padding: 10px;
+    color : #e74c3c;
+    font-style: italic;
 }
