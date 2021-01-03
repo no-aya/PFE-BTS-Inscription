@@ -1,0 +1,104 @@
+/*************************
+    Typography
+**************************/
+body{
+    font-family: 'Raleway', sans-serif;
+    overflow: hidden;
+}
+.side-menu{
+    color: white;
+}
+.credits{
+    font-size: 0.7em;
+    text-align: center;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+/*************************
+    Layouts
+**************************/
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+.logo{
+    width : 50%;
+    margin: 1em auto;
+}
+.logo img{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+}
+nav a{
+    height: 2em;
+}
+.side-menu{
+    max-width: 1200px;
+    background-color: #1E6C93;
+    position:sticky;
+    height: 100vh;
+    width: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 500px;
+}
+.side-menu li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.8em 1.8em;
+    margin: 1em 0;
+    border: 0.1px solid rgba(0,0,0,0);
+    border-bottom-left-radius: 2em;
+    border-top-left-radius: 2em;
+}
+.side-menu-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 2em;
+}
+.side-menu-image img{
+    height: 100%;
+}
+.side-menu li:hover{
+    transition: 300ms;
+    border: 0.1px solid rgba(255,255,255, 0.2);
+}
+.credits p{
+    margin: auto;
+    width: 50%;
+}
+
+@media screen and (max-width:1000px){
+    .side-menu{
+        width: 20%;
+        min-width: 120px;
+    }
+    .menu-text,.logo,.credits{
+        display: none;
+    }
+}
+
+/*************************
+    Components
+**************************/
+.selected-menu{
+    /*place it inside <li>*/
+    background-color: #79D2FB;
+    border: none;
+    box-shadow: 0px 4px 13px 2px rgba(0,0,0,0.2);
+}
+
