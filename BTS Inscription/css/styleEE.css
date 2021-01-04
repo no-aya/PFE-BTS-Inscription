@@ -91,6 +91,44 @@ nav a{
         display: none;
     }
 }
+.contact-title{
+    margin-top: 100px;
+    color: #fff;
+    text-transform:uppercase;
+    transition:all 4s ease-in-out;
+    text-align:center;
+    font-family:sans-serif;
+
+}
+.form{
+  margin-top:50px;
+  transition:all 4s ease-in-out;  
+}
+.form-control{
+    width:600px;
+    background:rgba(239, 241, 243, 0.2);
+    color: #fff;
+    font-size:20px;
+    margin-bottom: 20px;
+    box-shadow: 6px 6px 6px black;
+    font-family:sans-serif;
+}
+input{
+    height:45px;
+}
+.form-buton{
+    padding: 1em 2em;
+    background-color:#79D2FB ;
+    border-radius: 50px;
+    box-shadow: 0px 4px 13px 2px rgba(0,0,0,0.2);
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+.form-buton:hover {
+    box-shadow: none;
+}
+
 
 /*************************
     Components
