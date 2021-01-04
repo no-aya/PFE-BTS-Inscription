@@ -91,45 +91,45 @@ nav a{
         display: none;
     }
 }
-.contact-title{
-    margin-top: 100px;
-    color: #fff;
-    text-transform:uppercase;
-    transition:all 4s ease-in-out;
-    text-align:center;
-    font-family:sans-serif;
 
+/************************
+    Contact form
+*************************/
+.content-box{
+    background-image: url("../images/Background-menu.jpg");
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+.contact-title{
+    color: white;
+    transition:all 2s ease-in-out;
+    text-align: center;
 }
 .form{
-  margin-top:50px;
-  transition:all 4s ease-in-out;  
+  margin-top:50vh;
 }
 .form-control{
-    width:600px;
-    background:rgba(239, 241, 243, 0.2);
-    color: #fff;
-    font-size:20px;
+    width:90vh;
+    border: none;
+    color: #1E6C93;
+    padding-left: 1em;
+    font-size:1em;
     margin-bottom: 20px;
-    box-shadow: 6px 6px 6px black;
-    font-family:sans-serif;
+    box-shadow: 1px -6px 62px -20px rgba(0,0,0,0.59);
 }
 input{
     height:45px;
+    border-radius: 50px ;
 }
-.form-buton{
-    padding: 1em 2em;
-    background-color:#79D2FB ;
-    border-radius: 50px;
-    box-shadow: 0px 4px 13px 2px rgba(0,0,0,0.2);
-    text-decoration: none;
-    color: white;
-    text-align: center;
+textarea{
+    padding-top: 1em;
+    border-radius: 20px ;
+    height: 150px;
+    resize: none;
+    font-family: 'Raleway', sans-serif;
 }
-.form-buton:hover {
-    box-shadow: none;
-}
-
-
 /*************************
     Components
 **************************/
@@ -139,4 +139,21 @@ input{
     border: none;
     box-shadow: 0px 4px 13px 2px rgba(0,0,0,0.2);
 }
-
+.azure-button{
+    padding: 1em 2em;
+    border: none;
+    background-color:#79D2FB ;
+    border-radius: 50px;
+    box-shadow: 0px 4px 13px 2px rgba(0,0,0,0.2);
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size:0.9em;
+}
+.azure-button:hover {
+    box-shadow: none;
+}
+h1{
+    font-size: 3em;
+    font-weight: 700;
+}
