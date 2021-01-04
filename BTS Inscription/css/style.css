@@ -652,6 +652,7 @@ th{
     .map-box{
         height: 20vh;
     }
+<<<<<<< HEAD
 }
 
 /****************************
@@ -721,3 +722,6 @@ ol li{
 button:hover{
     cursor: pointer;
 }
+=======
+}
+>>>>>>> parent of e1ae766 (code)
