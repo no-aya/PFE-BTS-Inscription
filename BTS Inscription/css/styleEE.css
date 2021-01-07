@@ -130,9 +130,61 @@ textarea{
     resize: none;
     font-family: 'Raleway', sans-serif;
 }
+
+/*************************
+    Glider
+**************************/
+.news-card, .absentee-card{
+    position: absolute;
+    left: auto;
+    width: 60%;
+    padding: 1.5% 1.5em;
+    border: 1px solid cornflowerblue;
+    background-color: white;
+    box-shadow: 0px 4px 13px 2px rgba(0,0,0,0.02);
+}
+.news-card{
+    top : 5%;
+}
+.absentee-card{
+    bottom : 5%;
+}
+.glide-contain button{
+    font-size: 35px;
+    top: 40%;
+}
+@media screen and (min-height:1080px){
+    .news-card{
+        top : 15%;
+    }
+    .absentee-card{
+        bottom : 15%;
+    }
+}
+.news-title{
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin-bottom: 0;
+}
+.news-date{
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 0;
+}
+.news-text-imp{
+    color: #1E6C93;
+    font-weight: bolder;
+}
+
 /*************************
     Components
 **************************/
+.content-box-two{
+    background-image: url(../images/Background-wide.png);
+    background-size: cover;
+    flex-direction: column;
+
+}
 .selected-menu{
     /*place it inside <li>*/
     background-color: #79D2FB;
@@ -156,4 +208,15 @@ textarea{
 h1{
     font-size: 3em;
     font-weight: 700;
+}
+table{
+    border: 1px solid cornflowerblue ;
+    width: 100%;
+    text-align: center;
+    height: 50%;
+    border-collapse:collapse;
+}
+th,td{
+    padding: .5em .5em;
+    border: 1px solid cornflowerblue ;
 }
