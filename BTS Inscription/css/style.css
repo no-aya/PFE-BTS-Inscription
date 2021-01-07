@@ -564,13 +564,10 @@ ol, li {
     Log page
 ****************************/
 .main-log-container{
-    height: 70vh;
+    height: 90vh;
     padding: 3em 0;
     background-image: url("../images/Background-log-wide.jpg");
     background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 .main-log-container p{
     color: white;
@@ -587,6 +584,7 @@ ol, li {
     justify-content: center;
     text-align: center;
 }
+
 @media screen and (max-width:900px){
     .main-log-container{
         background: #1E6C93;
