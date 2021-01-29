@@ -97,6 +97,7 @@ body{
 }
 .text-glider{
     text-align: center;
+    font-style: italic;
 }
 .text-glider span {
     color: #1E6C93;

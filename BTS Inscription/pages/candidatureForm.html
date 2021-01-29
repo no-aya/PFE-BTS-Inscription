@@ -54,11 +54,16 @@
                                     </div> 
                                     <label class="fieldlabels" >Nom : *<span class="error-message"></span> <i class="fas fa-exclamation-circle"></i></label><input type="text" name="lname" placeholder="Nom" />
                                     <label class="fieldlabels">Prénom: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="fname" placeholder="Prénom" /> 
-                                    <label class="fieldlabels">Email: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="email" name="email" placeholder="Email" /> 
-                                    <label class="fieldlabels">Date de naissance: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="birthday" placeholder="jj/mm/aaaa"/> 
-                                    <label class="fieldlabels">CINE: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="cine" placeholder="Nº carte nationale" /> 
-                                    <label class="fieldlabels">Adresse: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="adresse" placeholder="Où habitez-vous?" />
-                                    <label class="fieldlabels">Ville: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> 
+                                    <label class="fieldlabels">Sexe :</label> 
+                                    <select name="sexe" id="sexe">
+                                        <option value="garçon">Garçon</option>
+                                        <option value="fille">Fille</option>
+                                    </select>
+                                    <label class="fieldlabels">Email : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="email" name="email" placeholder="Email" /> 
+                                    <label class="fieldlabels">Date de naissance : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="birthday" placeholder="jj/mm/aaaa"/> 
+                                    <label class="fieldlabels">CINE : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="cine" placeholder="Nº carte nationale" /> 
+                                    <label class="fieldlabels">Adresse : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="adresse" placeholder="Où habitez-vous?" />
+                                    <label class="fieldlabels">Ville : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> 
                                     <select name="ville" id="ville">
                                         <option value="Marrakech">Marrakech</option>
                                         <option value="Safi">Safi</option>
@@ -80,8 +85,8 @@
                                     </div> 
                                     <label class="fieldlabels">Année d'obtention : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="number" name="bacyear" placeholder="aaaa" pattern="20[0-9][0-9]"/> 
                                     <label class="fieldlabels">Type de bac: *</label> 
-                                    <select name="bactype" id="bactype">
-                                        <option value="svt">Sciences de la Vie et de la Terre</option>
+                                    <select name="bactype" id="bactype" onblur="quatriemeChoix();">
+                                        <option value="svt" selected>Sciences de la Vie et de la Terre</option>
                                         <option value="pc">Sciences Physiques et Chimiques</option>
                                         <option value="sma">Sciences Maths A</option>
                                         <option value="smb">Sciences Maths B</option>
@@ -102,6 +107,7 @@
                                     </select>
                                     <label class="fieldlabels">Scannez votre image :<span class="error-message"></span><i class="fas fa-exclamation-circle" ></i></label> <input type="file" name="pic" class="files"> 
                                     <label class="fieldlabels">Scannez votre bac :<span class="error-message"></span><i class="fas fa-exclamation-circle" ></i></label> <input type="file" name="pic"  class="files">
+                                    <label class="fieldlabels">Attachez votre reçu d'inscription sur e-bts.gov.ma :<span class="error-message"></span><i class="fas fa-exclamation-circle" ></i></label> <input type="file" name="pic"  class="files">
                                 </div> <input type="button" name="next" class="next action-button" value="Suivant" /> 
                                 <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
                             </fieldset>
@@ -131,6 +137,13 @@
                                     </select>
                                     <label class="fieldlabels">Troisième choix: *</label> 
                                     <select name="tchoix" id="tchoix">
+                                        <option value="cg">Comptabilité et Gestion</option>
+                                        <option value="mcw">Multimédia et Conception Web</option>
+                                        <option value="prod">Productique</option>
+                                        <option value="se">Systèmes électroniques</option>
+                                    </select>
+                                    <label class="fieldlabels quatrieme-choix">Quatrième choix: *</label> 
+                                    <select name="tchoix" id="tchoix" class="quatrieme-choix">
                                         <option value="cg">Comptabilité et Gestion</option>
                                         <option value="mcw">Multimédia et Conception Web</option>
                                         <option value="prod">Productique</option>

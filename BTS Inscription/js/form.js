@@ -90,7 +90,16 @@ $(document).ready(function(){
     const bacMention=document.getElementById('bacmention')[0];
     const imgScan=document.getElementsByClassName('files')[0];
     const bacScan=document.getElementsByClassName('files')[1];
-    
+    const recuScan=document.getElementsByClassName('files')[2];
+    function quatriemeChoix(){
+        if(document.getElementById('bactype').selectedIndex==7 || document.getElementById('bactype').selectedIndex==8) {
+            document.getElementsByClassName('quatrieme-choix')[0].classList.add('unvalid-choix');
+            document.getElementsByClassName('quatrieme-choix')[1].classList.add('unvalid-choix');
+        }else{
+            document.getElementsByClassName('quatrieme-choix')[0].classList.remove('unvalid-choix');
+            document.getElementsByClassName('quatrieme-choix')[1].classList.remove('unvalid-choix');
+        }
+    }
     function setErrorFor(input, index, message) {
         input.className = 'error';
         document.getElementsByClassName('fas')[index].classList.add('error');
@@ -171,6 +180,12 @@ $(document).ready(function(){
                 }else{
                     setSuccessFor(bacScan, 11);
                 }
+                if(!isValidFile(recuScan.value)){
+                    setErrorFor(recuScan, 12,  "Fichiers de type .img .png ou .pdf uniquement ");
+                    errorsCount++;
+                }else{
+                    setSuccessFor(recuScan, 12);
+                }
                 if(errorsCount!=0) return false;
                 return true;
             default:
@@ -215,4 +230,5 @@ $(document).ready(function(){
         }
         return false;
     }
-    
+
+
