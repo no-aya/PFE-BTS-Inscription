@@ -237,3 +237,6 @@ p {
     color : #e74c3c;
     font-style: italic;
 }
+.unvalid-choix{
+    display: none;
+}
