@@ -25,11 +25,19 @@
 }
 
 .img-slider .slide .info{
+  width: 80%;
   position: absolute;
   bottom: 5%;
   padding: 15px 30px;
 }
-
+@media screen and (max-width:1000px){
+  .img-slider .slide .info{
+    width: 30%;
+  }
+  .info h2{
+    width: 30%;
+  }
+}
 .img-slider .slide .info h2{
   text-shadow: 2px 2px #1E6C93;;
   color: #fff;

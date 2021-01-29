@@ -6,6 +6,7 @@
     <title>Centre du BTS - Lycée Mohammed VI</title>
     <link rel="icon" href="images/BTS Logo white.svg">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 </head>
 <body>
     <div class="main-container">
@@ -32,7 +33,7 @@
     </div>
     <div class="row-1 stylish-banner">
         <div class="col-1">
-            <div class="subscribe-field" style="padding-bottom: 0px;">
+            <div class="subscribe-field">
                 <div>
                     <h1>Rester à jour des dates importantes</h1>
                     <p>Ouverture des candidatures, affichage des listes, dépôt des dossiers … On s’en occupe !</p>
@@ -46,31 +47,17 @@
             </div>
         </div>
         <div class="col-1">
-            <section class="carousel" aria-label="gov-statements">
-                <ol class="carousel__viewport">
-                  <li id="carousel__slide1"
-                      tabindex="0"
-                      class="carousel__slide">
-                      L’arrêté ministériel <span> n° 329.05 du 24 mai 2005 </span>organise les diplômes permettant d’accéder à la fonction publique en tant que <span>technicien 1er grade</span>.
-                  </li>
-                  <li id="carousel__slide2"
-                      tabindex="0"
-                      class="carousel__slide">
-                      L’organisation des formations dans les classes de préparation du Brevet de Technicien Supérieur est régie par l’arrêté ministériel n 1431 du 26 novembre 2012.
-                  </li>
-                </ol>
-                <aside class="carousel__navigation">
-                    <li class="carousel__navigation-item">
-                      <a href="#carousel__slide1"
-                         class="carousel__navigation-button">Allez à 1</a>
-                    </li>
-                    <li class="carousel__navigation-item">
-                      <a href="#carousel__slide2"
-                         class="carousel__navigation-button">Allez à 2</a>
-                    </li>
-                  </ol>
-                </aside>
-              </section>
+            <div class="glide-contain multiple">
+                <div class="glider">
+                    <figure>
+                        <p class="text-glider">L’arrêté ministériel <span> n° 329.05 du 24 mai 2005 </span>organise les diplômes permettant d’accéder à la fonction publique en tant que <span>technicien 1er grade</span>.</p>
+                    </figure>
+                    <figure>
+                        <p class="text-glider">L’organisation des formations dans les classes de préparation du Brevet de Technicien Supérieur est régie par l’arrêté ministériel n 1431 du 26 novembre 2012.</p>
+                    </figure>
+                </div>
+                <div id="dots" class="glider-dots"></div>
+            </div>
         </div>
     </div>
     <div class="main-content main-content-1">
@@ -78,7 +65,7 @@
             <img class="col-1" src="images/personPC.png" alt="">
             <div class="col-1">
                 <h1>Un environnement adéquat pour l’apprentissage</h1>
-                <p>Le centre BTS Mohammed VI à Marrakech offre un espace hautement équipé, selon les standards des référentiels de chaque formation afin de garantir le caractère national du diplôme et assurer l’obtention du maximum de chaque filière.</p>
+                <p style="margin-bottom: 0;">Le centre BTS Mohammed VI à Marrakech offre un espace hautement équipé, selon les standards des référentiels de chaque formation afin de garantir le caractère national du diplôme et assurer l’obtention du maximum de chaque filière.</p>
                 <p>Une équipe d’enseignants, directeurs, cadres et responsables qualifiés et ponctuels pour vous accompagner tout au long de votre cursus.</p>
                 <div><a href="pages/candidature.html" class="azure-button">Candidater</a></div>
             </div>
@@ -112,4 +99,12 @@
         <p>© 2020 Centre des BTS - Lycée Mohammed VI . Azli - Marrakech</p>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+<script>
+        new Glider(document.querySelector('.glider'), {
+            slidesToShow: 1,
+            dots: '#dots',
+            draggable: false,
+        });
+</script>
 </html>

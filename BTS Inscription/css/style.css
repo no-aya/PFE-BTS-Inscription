@@ -23,20 +23,22 @@ body{
     background-image: url("../images/Background-menu.jpg");
 }
 .main-content {
-    padding :3em 1em;
+    padding :2em 1em;
+    margin: 0em 0em 3em 0em;
 }
 .main-content-1{
     background-image: url("../images/containtBg.png");
     background-repeat: no-repeat;
 }
 .main-content-3{
+    margin: 0em;
     display: grid;
     justify-content: space-around;
     flex-direction: column;
     background-image: url("../images/Background-wide.png");
     background-repeat: no-repeat;
 }
-@media screen and (max-width:750px) {
+@media screen and (max-width:700px) {
     .main-content-1 img {
         display: none;
     }
@@ -63,9 +65,6 @@ body{
     display: flex;
     flex-direction: column;
     width: 45%;
-}
-.col-1 div{
-    padding: 2em 0;
 }
 @media screen and (max-width:850px){
     .row-1{
@@ -96,12 +95,26 @@ body{
         grid-template-columns: repeat(2, 1fr); 
     }
 }
-
+.text-glider{
+    text-align: center;
+}
+.text-glider span {
+    color: #1E6C93;
+}
+p{
+    padding-bottom: 1em;
+}
+figure{
+    margin-bottom: 0em;
+}
 @media screen and (max-width : 700px){
     .grid-container{
         grid-template-columns: repeat(1, 1fr); 
         grid-template-rows: repeat(4, 1fr); 
         grid-gap: 1%;
+    }
+    .glider{
+        display: none;
     }
 }
 
@@ -152,7 +165,7 @@ nav {
   align-items: center;
   justify-content: space-between;
 }
-@media screen and (max-width:850px) {
+@media screen and (max-width:800px) {
     nav {
         flex-direction: column;
         justify-content: space-around;
@@ -236,6 +249,8 @@ nav li > a:hover{
 
 /* Email Field */
 .subscribe-field {
+    padding: 2em 0;
+    padding-bottom: 0px;
     background-color: #0070BE ;
     border-radius: 6.25em;
     width : 70%;
@@ -318,121 +333,12 @@ nav li > a:hover{
 .c-form__button img{
     width: 30%;
 }
-
-/*Carousel text*/
-@keyframes tonext {
-    75% {
-      left: 0;
-    }
-    95% {
-      left: 100%;
-    }
-    98% {
-      left: 100%;
-    }
-    99% {
-      left: 0;
-    }
-  }
-  
-  @keyframes tostart {
-    75% {
-      left: 0;
-    }
-    95% {
-      left: -100%;
-    }
-    98% {
-      left: -100%;
-    }
-    99% {
-      left: 0;
-    }
-}
-ol, li {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .carousel {
-    position: relative;
-    padding: 3em;
-    margin-top: 3em;
-    color: black;
-    font-style: italic;
-  }
-  @media screen and (max-width:850px){
-      .carousel{
-          display: none;
-        }
-  }
-
-  
-  .carousel__viewport {
-    text-align: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    overflow-x: scroll;
-    counter-reset: item;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-  }
-  .carousel__viewport::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .carousel__slide {
-    position: relative;
-    flex: 0 0 100%;
-    width: 100%;
+.glide-contain{
     height: 50%;
-    counter-increment: item;
-
-  }
-
-  .carousel__slide span{
-    color: #0070BE;
-  }
-    .carousel__slide:last-child{
-      animation-name: tonext;
-    }
-    .carousel__slide:first-child{
-        animation-name: tostart;
-    }
-  
-  .carousel__navigation {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    text-align: center;
-  }
-  
-  .carousel__navigation-list,
-  .carousel__navigation-item {
-    display: inline-block;
-  }
-  
-  .carousel__navigation-button {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    background-color: rgba(0,0,0 , 0.3);
-    background-clip: content-box;
-    border: 0.25rem solid transparent;
-    border-radius: 50%;
-    font-size: 0;
-    transition: transform 0.1s;
-  }
-  .carousel__navigation-button:hover{
-      background-color:  #0070BE;
-  }
-
+}
+.glider{
+    padding : 0;
+}
 /****************************
    Page main title
 ****************************/
