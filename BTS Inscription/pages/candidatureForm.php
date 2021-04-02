@@ -1,35 +1,32 @@
+<?php 
+include ('../data/connexion.php');
+$NUMDECHOIX=4;
+$enChoix=["Premier","Deuxième","Troisième","Quatrième"];
+$idChoix=["p","d","t","q"];
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../images/BTS Logo white.svg">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/form.css">    
+    <?php 
+        require_once("../components/pageStart.html");
+    ?>
+    <link rel="stylesheet" href="../css/form.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />   
     <title>Formulaire</title>
 </head>
 <body>
     <div class="main-container">
-        <div class="header">
-            <nav>
-                <a href="../index.html"><img src="../images/BTS Logo white.svg" alt="BTS Lycée Mohammed VI"></a>
-                <ul>
-                    <li ><a href="../index.html">Acceuil</a></li>
-                    <li><a href="filieres.html" >Filières</a></li>
-                    <li><a href="candidature.html" class="active-page">Candidature</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <a href="espaceLog.html"><li class="azure-button">Espace étudiant</li></a>
-                </ul>
-            </nav>  
-        </div>
+        <?php 
+            require_once("../components/header.html");
+        ?>
     </div>
     <div class="main-content main-content-3">
 
 
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
-                    <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <div>
+                    <div class="card">
                         <h2 id="heading" class="page-title">Pré-inscription</h2>
                         <p style="text-align: center;">Veuillez remplir soigneusement le formulaire suivant, toutes ces informations seront prises en charge afin de confirmer votre inscription.</p>
                         <form id="msform">
@@ -45,15 +42,16 @@
                             <fieldset>
                                 <div class="form-card">
                                     <div class="row">
-                                        <div class="col-7">
+                                        <div>
                                             <h2 class="fs-title">Informations personnelles :</h2>
                                         </div>
-                                        <div class="col-5">
+                                        <div>
                                             <h2 class="steps">Étape 1 - 4</h2>
                                         </div>
                                     </div> 
                                     <label class="fieldlabels" >Nom : *<span class="error-message"></span> <i class="fas fa-exclamation-circle"></i></label><input type="text" name="lname" placeholder="Nom" />
-                                    <label class="fieldlabels">Prénom: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="fname" placeholder="Prénom" /> 
+                                    <label class="fieldlabels">Prénom: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="fname" placeholder="Prénom" />
+                                    <label class="fieldlabels">Mot de passe: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="password" autocomplete="current-password" name="pwd" placeholder="Mot de passe" /> 
                                     <label class="fieldlabels">Sexe :</label> 
                                     <select name="sexe" id="sexe">
                                         <option value="garçon">Garçon</option>
@@ -76,10 +74,10 @@
                             <fieldset>
                                 <div class="form-card">
                                     <div class="row">
-                                        <div class="col-7">
+                                        <div>
                                             <h2 class="fs-title">Baccalauréat :</h2>
                                         </div>
-                                        <div class="col-5">
+                                        <div>
                                             <h2 class="steps">Étape 2 - 4</h2>
                                         </div>
                                     </div> 
@@ -114,41 +112,23 @@
                             <fieldset>
                                 <div class="form-card">
                                     <div class="row">
-                                        <div class="col-7">
+                                        <div>
                                             <h2 class="fs-title">Vos Choix:</h2>
                                         </div>
-                                        <div class="col-5">
+                                        <div>
                                             <h2 class="steps">Étape 3 - 4</h2>
                                         </div>
                                     </div> 
-                                    <label class="fieldlabels">Premier choix: *</label> 
-                                    <select name="pchoix" id="pchoix">
-                                        <option value="cg">Comptabilité et Gestion</option>
-                                        <option value="mcw">Multimédia et Conception Web</option>
-                                        <option value="prod">Productique</option>
-                                        <option value="se">Systèmes électroniques</option>
-                                    </select>
-                                    <label class="fieldlabels">Deuxième choix *</label> 
-                                    <select name="dchoix" id="dchoix">
-                                        <option value="cg">Comptabilité et Gestion</option>
-                                        <option value="mcw">Multimédia et Conception Web</option>
-                                        <option value="prod">Productique</option>
-                                        <option value="se">Systèmes électroniques</option>
-                                    </select>
-                                    <label class="fieldlabels">Troisième choix: *</label> 
-                                    <select name="tchoix" id="tchoix">
-                                        <option value="cg">Comptabilité et Gestion</option>
-                                        <option value="mcw">Multimédia et Conception Web</option>
-                                        <option value="prod">Productique</option>
-                                        <option value="se">Systèmes électroniques</option>
-                                    </select>
-                                    <label class="fieldlabels quatrieme-choix">Quatrième choix: *</label> 
-                                    <select name="tchoix" id="tchoix" class="quatrieme-choix">
-                                        <option value="cg">Comptabilité et Gestion</option>
-                                        <option value="mcw">Multimédia et Conception Web</option>
-                                        <option value="prod">Productique</option>
-                                        <option value="se">Systèmes électroniques</option>
-                                    </select>
+                                    <?php
+                                    for($i=0;$i<$NUMDECHOIX;$i++){
+                                        $result=mysqli_query($connexion,"SELECT * FROM `Filiere`");
+                                        echo "<label class=\"fieldlabels\">".$enChoix[$i]." choix: *</label>"; 
+                                        echo "<select name=\"".$idChoix[$i]."choix\" id=\"".$idChoix[$i]."choix\">";
+                                        while($row=mysqli_fetch_assoc($result))
+                                        echo "<option value={$row['FiliereID']}>{$row['Label']}</option>";
+                                        echo "</select>";
+                                    }
+                                    ?>
                                 </div> 
                                 <input type="button" name="next" class="next action-button" value="Confirmer" /> 
                                 <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
@@ -156,17 +136,17 @@
                             <fieldset>
                                 <div class="form-card">
                                     <div class="row">
-                                        <div class="col-7">
+                                        <div>
                                             <h2 class="fs-title">Terminer:</h2>
                                         </div>
-                                        <div class="col-5">
+                                        <div>
                                             <h2 class="steps">Étape 4 - 4</h2>
                                         </div>
                                     </div> <br><br>
                                     <div class="success-card">
                                         <h2 class="blue-text text-center"><strong>FÉLICITATIONS !</strong></h2> <br>
                                         <div class="row">
-                                            <div class="col-7 text-center">
+                                            <div>
                                                 <h5 class="blue-text text-center">Votre candidature a été bien enregistrée</h5>
                                             </div>
                                         </div>
@@ -182,13 +162,14 @@
             </div>
         </div>
 
-        <div class="credits">
-            <p>© 2020 Centre des BTS - Lycée Mohammed VI . Azli - Marrakech</p>
-        </div>
+        <?php include("../components/credits.html")?>
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="../js/form.js"></script>
-    
 </body>
+<script>
+    var x=document.getElementsByClassName("menu-element")[2];
+    x.classList.add("active-page");
+</script>
 </html>

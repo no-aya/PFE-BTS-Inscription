@@ -80,6 +80,7 @@ $(document).ready(function(){
     const form = document.getElementById('msform');
     const lname = document.getElementsByName('lname')[0];
     const fname = document.getElementsByName('fname')[0];
+    const pwd = document.getElementsByName('pwd')[0];
     const email = document.getElementsByName('email')[0];
     const birthday = document.getElementsByName('birthday')[0];
     const cine = document.getElementsByName('cine')[0];
@@ -126,65 +127,71 @@ $(document).ready(function(){
                 }else{
                     setSuccessFor(fname, 1);
                 }
-                if(!isEmail(email.value.trim())) {
-                    setErrorFor(email, 2, "Entrez un email valid ");
+                if(!isPassword(pwd.value)){
+                    setErrorFor(pwd, 2,"Mot de passe doit avoir au moins 8 caractères!");
                     errorsCount++;
                 }else{
-                    setSuccessFor(email, 2);
+                    setSuccessFor(pwd, 2);
+                }
+                if(!isEmail(email.value.trim())) {
+                    setErrorFor(email, 3, "Entrez un email valid ");
+                    errorsCount++;
+                }else{
+                    setSuccessFor(email, 3);
                 }
                 if(!isDate(birthday.value.trim())) {
-                    setErrorFor(birthday, 3,"Entrez une date valide ");
+                    setErrorFor(birthday, 4,"Entrez une date valide ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(birthday, 3);
+                    setSuccessFor(birthday, 4);
                 }
                 if(!isCINE(cine.value.trim())) {
-                    setErrorFor(cine, 4, "Numéro de CINE invalid ");
+                    setErrorFor(cine, 5, "Numéro de CINE invalid ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(cine, 4);
+                    setSuccessFor(cine, 5);
                 }
                 if(adresse.value.trim() === '' ) {
-                    setErrorFor(adresse, 5, "Obligatoire ");
+                    setErrorFor(adresse, 6, "Obligatoire ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(adresse, 5);
+                    setSuccessFor(adresse, 6);
                 }
                 if(errorsCount!=0) return false;
                 return true;
     
             case 2 :
                 if(!isValidYear(bacYear.value.trim())) {
-                    setErrorFor(bacYear, 7, "Année d'obtention invalide ");
+                    setErrorFor(bacYear, 8, "Année d'obtention invalide ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(bacYear, 7);
+                    setSuccessFor(bacYear, 8);
                 }
                 if(!isValidNote(bacNote.value.trim(),document.getElementById('bacmention').value)) {
-                    setErrorFor(bacNote, 8, "Note invalide ou ne correspond pas à votre mention");
-                    setErrorFor(bacMention, 9, "La mention ne correspond pas à votre note ");
+                    setErrorFor(bacNote, 9, "Note invalide ou ne correspond pas à votre mention");
+                    setErrorFor(bacMention, 10, "La mention ne correspond pas à votre note ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(bacNote, 8);
-                    setSuccessFor(bacMention, 9);
+                    setSuccessFor(bacNote, 9);
+                    setSuccessFor(bacMention, 10);
                 }
                 if(!isValidFile(imgScan.value)){
-                    setErrorFor(imgScan, 10, "Fichiers de type .img .png ou .pdf uniquement ");
+                    setErrorFor(imgScan, 11, "Fichiers de type .img .png ou .pdf uniquement ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(imgScan, 10);
+                    setSuccessFor(imgScan, 11);
                 }
                 if(!isValidFile(bacScan.value)){
-                    setErrorFor(bacScan, 11,  "Fichiers de type .img .png ou .pdf uniquement ");
+                    setErrorFor(bacScan, 12,  "Fichiers de type .img .png ou .pdf uniquement ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(bacScan, 11);
+                    setSuccessFor(bacScan, 12);
                 }
                 if(!isValidFile(recuScan.value)){
-                    setErrorFor(recuScan, 12,  "Fichiers de type .img .png ou .pdf uniquement ");
+                    setErrorFor(recuScan, 13,  "Fichiers de type .img .png ou .pdf uniquement ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(recuScan, 12);
+                    setSuccessFor(recuScan, 13);
                 }
                 if(errorsCount!=0) return false;
                 return true;
@@ -192,7 +199,10 @@ $(document).ready(function(){
                 return true;
         }   
     }
-    
+
+    function isPassword(pwd){
+        return pwd !== undefined && pwd !== null && pwd.length>8 ;
+    }
     function isCINE(cine){
         return /^[A-Za-z]?[A-Za-z][0-9]{6}$/.test(cine);
     }
@@ -230,5 +240,5 @@ $(document).ready(function(){
         }
         return false;
     }
-
+    
 

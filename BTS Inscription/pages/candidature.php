@@ -9,25 +9,16 @@
 </head>
 <body>
     <div class="main-container">
-        <div class="header">
-            <nav>
-                <a href="../index.html"><img src="../images/BTS Logo white.svg" alt="BTS Lycée Mohammed VI"></a>
-                <ul>
-                    <li ><a href="../index.html">Acceuil</a></li>
-                    <li><a href="filieres.html" >Filières</a></li>
-                    <li><a href="#" class="active-page">Candidature</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <a href="espaceLog.html"><li class="azure-button">Espace étudiant</li></a>
-                </ul>
-            </nav>  
-        </div>
+        <?php 
+            require_once("../components/header.html");
+        ?>
     </div>
     <div class="main-content main-content-3">
         <div class="info-card row-1">
             <div class="info-card-side info-card-left col-1">
                 <h1>Nouveau candidat</h1>
                 <div class="info-card-description">Procéder au formulaire de candidature pour nouveau inscrits</div>
-                <a href="candidatureDetails.html"><div class="azure-button">Nouvelle candidature</div></a>
+                <a href="candidatureDetails.php"><div class="azure-button">Nouvelle candidature</div></a>
             </div>
             <div class="info-card-side info-card-right col-1">
                 <h1>Déja un candidat?</h1>
@@ -41,9 +32,12 @@
                 <a href=""><div class="azure-button">Se connecter</div></a>
             </div>
         </div>
-        <div class="credits">
-            <p>© 2020 Centre des BTS - Lycée Mohammed VI . Azli - Marrakech</p>
-        </div>
+        <?php include("../components/credits.html")?>
     </div>
 </body>
+<script>
+    var x=document.getElementsByClassName("menu-element")[2];
+    x.classList.add("active-page");
+    x.href = "javascript:void(0)";
+</script>
 </html>
