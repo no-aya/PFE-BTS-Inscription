@@ -92,6 +92,7 @@ $(document).ready(function(){
     const imgScan=document.getElementsByClassName('files')[0];
     const bacScan=document.getElementsByClassName('files')[1];
     const recuScan=document.getElementsByClassName('files')[2];
+
     function quatriemeChoix(){
         if(document.getElementById('bactype').selectedIndex==7 || document.getElementById('bactype').selectedIndex==8) {
             document.getElementsByClassName('quatrieme-choix')[0].classList.add('unvalid-choix');
@@ -240,5 +241,3 @@ $(document).ready(function(){
         }
         return false;
     }
-    
-
