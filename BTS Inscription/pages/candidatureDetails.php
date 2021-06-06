@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../images/BTS Logo white.svg">
-    <link rel="stylesheet" href="../css/style.css">
+    <?php 
+        require_once("../components/pageStart.html");
+    ?>
     <title>Candidature</title>
 </head>
 <body>
     <div class="main-container">
-        <div class="header">
-            <nav>
-                <a href="../index.html"><img src="../images/BTS Logo white.svg" alt="BTS Lycée Mohammed VI"></a>
-                <ul>
-                    <li ><a href="../index.html">Acceuil</a></li>
-                    <li><a href="filieres.html" >Filières</a></li>
-                    <li><a href="#" class="active-page">Candidature</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <a href="espaceLog.html"><li class="azure-button">Espace étudiant</li></a>
-                </ul>
-            </nav>  
-        </div>
+        <?php 
+            require_once("../components/header.html");
+        ?>
     </div>
     <div class="main-content main-content-3" style="background: url(../images/Background-wide.png) no-repeat center center;">
         <div class="page-title" style="justify-self: center; max-width: 1000px;">PROCÉDURE DE CANDIDATURE</div>
@@ -37,7 +27,7 @@
                 <p>Une fois les listes finales sont affichés, vérifiez votre admission dans nos centres sur le site <span>e-bts.men.gov.ma</span> . Si vous y figurez, vous devez compléter votre dossier électronique sur notre site afin de confirmer votre choix.</p>
                 <p class="warning-text">Attention : Ce n’est pas une inscription définitive !</p>
                 <p>Le service de scolarité de l’établissement effectuera un tri, selon l’ordre de mérite et le nombre de places disponibles.</p>
-                <a href="candidatureForm.html" style="text-decoration: none;"><div class="azure-button">Procéder à la pré-inscription</div></a>
+                <a href="candidatureBac.php" style="text-decoration: none;"><div class="azure-button">Procéder à la pré-inscription</div></a>
             </div>
             <div class="number"> <img src="../images/2.png" alt="2"></div>
         </div>
@@ -57,11 +47,13 @@
                 <p>
                 <p>Ceux qui ne déposeront pas ces originaux dans les délais perdront leur droit d’inscription.</p>
             </div>
+            </div>
         </div>
-        <div class="credits">
-            <p>© 2020 Centre des BTS - Lycée Mohammed VI . Azli - Marrakech</p>
-        </div>
-        </div>
+        <?php include("../components/credits.html")?>
     </div>
 </body>
+<script>
+    var x=document.getElementsByClassName("menu-element")[2];
+    x.classList.add("active-page");
+</script>
 </html>

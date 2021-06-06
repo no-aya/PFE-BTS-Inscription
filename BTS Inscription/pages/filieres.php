@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php 
+        require_once("../components/pageStart.html");
+    ?>    
     <title>Filières</title>
-    <link rel="icon" href="../images/BTS Logo white.svg">
-    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="main-container">
-        <div class="header">
-            <nav>
-                <a href="../index.html"><img src="../images/BTS Logo white.svg" alt="BTS Lycée Mohammed VI"></a>
-                <ul>
-                    <li ><a href="../index.html">Acceuil</a></li>
-                    <li><a href="#" class="active-page">Filières</a></li>
-                    <li><a href="candidature.html">Candidature</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <a href="espaceLog.html"><li class="azure-button">Espace étudiant</li></a>
-                </ul>
-            </nav>  
-        </div>
+        <?php 
+            require_once("../components/header.html");
+        ?>
     </div>
     <div class="main-content main-content-3">
         <div class="page-title">
@@ -158,9 +148,12 @@
                 <img src="../images/sitting-student.svg" alt="" >
             </div>
         </div>
-        <div class="credits">
-            <p>© 2020 Centre des BTS - Lycée Mohammed VI . Azli - Marrakech</p>
-        </div>
+        <?php include("../components/credits.html")?>
     </div>
 </body>
+<script>
+    var x=document.getElementsByClassName("menu-element")[1];
+    x.classList.add("active-page");
+    x.href = "javascript:void(0)";
+</script>
 </html>

@@ -1,3 +1,16 @@
+<?php 
+include ('./data/connexion.php');
+$MSG="";
+$successMSG="<p style=\"color:red;\">Enregistré avec succés!</p>";
+if(isset($_POST['submit'])){
+    if(empty($_POST['visiteurEmail'])) $MSG="<p style=\"color:red;\">Remplissez les champs</p>";
+    else{
+        $sql = "INSERT INTO `Visiteur` (`email`) VALUES ('".$_POST['visiteurEmail']."')";
+        mysqli_query($connexion,$sql);
+        $MSG=$successMSG;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,10 +28,10 @@
                 <a href="#"><img src="images/BTS Logo white.svg" alt="BTS Lycée Mohammed VI"></a>
                 <ul>
                     <li ><a href="#" class="active-page">Acceuil</a></li>
-                    <li><a href="pages/filieres.html">Filières</a></li>
-                    <li><a href="pages/candidature.html">Candidature</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                    <a href="pages/espaceLog.html"><li class="azure-button">Espace étudiant</li></a>
+                    <li><a href="pages/filieres.php">Filières</a></li>
+                    <li><a href="pages/candidature.php">Candidature</a></li>
+                    <li><a href="pages/contact.php">Contact</a></li>
+                    <a href="pages/espaceLog.php"><li class="azure-button">Espace étudiant</li></a>
                 </ul>
             </nav>  
         </div>
@@ -26,7 +39,7 @@
             <div class="col-1">
                 <h1>Votre parcours professionnel commence dès maintenant</h1>
                 <p>Une formation dans le métier de technicien, qui s’étale sur 2 ans, ouverte aux titulaires du baccalauréat.</p>
-                <div><a href="pages/candidature.html" class="azure-button">Candidater</a></div>
+                <?php include("components/candidater.html") ?>
             </div>
             <img class = "col-2" src="images/stacking-cubes.svg" alt="">
         </div>
@@ -37,10 +50,10 @@
                 <div>
                     <h1>Rester à jour des dates importantes</h1>
                     <p>Ouverture des candidatures, affichage des listes, dépôt des dossiers … On s’en occupe !</p>
-                    <form class="c-form" action="">
-                    <input class="c-form__input" placeholder="Saisissez votre email" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$">
-                        <label class="c-form__buttonLabel" for="checkbox">
-                        <button class="c-form__button" type="submit"><img src="images/send-icon.svg" alt=""></button>
+                    <?php echo $MSG?>
+                    <form class="c-form" method="post" id="c-form" <?php if($MSG==$successMSG) {echo " style='display: none'"; } ?>>
+                    <input class="c-form__input" placeholder="Saisissez votre email" type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" name="visiteurEmail">
+                    <button class="c-form__button" form="c-form" type="submit" value="submit" name="submit"><img src="images/send-icon.svg" alt=""></button>
                     </label>
                     </form>
                 </div>
@@ -67,7 +80,7 @@
                 <h1>Un environnement adéquat pour l’apprentissage</h1>
                 <p style="margin-bottom: 0;">Le centre BTS Mohammed VI à Marrakech offre un espace hautement équipé, selon les standards des référentiels de chaque formation afin de garantir le caractère national du diplôme et assurer l’obtention du maximum de chaque filière.</p>
                 <p>Une équipe d’enseignants, directeurs, cadres et responsables qualifiés et ponctuels pour vous accompagner tout au long de votre cursus.</p>
-                <div><a href="pages/candidature.html" class="azure-button">Candidater</a></div>
+                <?php include("components/candidater.html") ?>
             </div>
         </div>
     </div>
@@ -95,9 +108,7 @@
             </div>
         </div>
     </div>
-    <div class="credits">
-        <p>© 2020 Centre des BTS - Lycée Mohammed VI . Azli - Marrakech</p>
-    </div>
+    <?php include("components/credits.html")?>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
 <script>

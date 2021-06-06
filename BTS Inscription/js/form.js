@@ -80,26 +80,20 @@ $(document).ready(function(){
     const form = document.getElementById('msform');
     const lname = document.getElementsByName('lname')[0];
     const fname = document.getElementsByName('fname')[0];
+    const pwd = document.getElementsByName('pwd')[0];
     const email = document.getElementsByName('email')[0];
     const birthday = document.getElementsByName('birthday')[0];
     const cine = document.getElementsByName('cine')[0];
     const adresse = document.getElementsByName('adresse')[0];
     const ville = document.getElementById('ville').value;
+    const codeMassar=document.getElementsByName('codeMassar')[0];
     const bacYear=document.getElementsByName('bacyear')[0];
     const bacNote=document.getElementsByName('note')[0];
     const bacMention=document.getElementById('bacmention')[0];
     const imgScan=document.getElementsByClassName('files')[0];
     const bacScan=document.getElementsByClassName('files')[1];
     const recuScan=document.getElementsByClassName('files')[2];
-    function quatriemeChoix(){
-        if(document.getElementById('bactype').selectedIndex==7 || document.getElementById('bactype').selectedIndex==8) {
-            document.getElementsByClassName('quatrieme-choix')[0].classList.add('unvalid-choix');
-            document.getElementsByClassName('quatrieme-choix')[1].classList.add('unvalid-choix');
-        }else{
-            document.getElementsByClassName('quatrieme-choix')[0].classList.remove('unvalid-choix');
-            document.getElementsByClassName('quatrieme-choix')[1].classList.remove('unvalid-choix');
-        }
-    }
+
     function setErrorFor(input, index, message) {
         input.className = 'error';
         document.getElementsByClassName('fas')[index].classList.add('error');
@@ -126,65 +120,77 @@ $(document).ready(function(){
                 }else{
                     setSuccessFor(fname, 1);
                 }
-                if(!isEmail(email.value.trim())) {
-                    setErrorFor(email, 2, "Entrez un email valid ");
+                if(!isPassword(pwd.value)){
+                    setErrorFor(pwd, 2,"Mot de passe doit avoir au moins 8 caractères!");
                     errorsCount++;
                 }else{
-                    setSuccessFor(email, 2);
+                    setSuccessFor(pwd, 2);
+                }
+                if(!isEmail(email.value.trim())) {
+                    setErrorFor(email, 3, "Entrez un email valid ");
+                    errorsCount++;
+                }else{
+                    setSuccessFor(email, 3);
                 }
                 if(!isDate(birthday.value.trim())) {
-                    setErrorFor(birthday, 3,"Entrez une date valide ");
+                    setErrorFor(birthday, 4,"Entrez une date valide ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(birthday, 3);
+                    setSuccessFor(birthday, 4);
                 }
                 if(!isCINE(cine.value.trim())) {
-                    setErrorFor(cine, 4, "Numéro de CINE invalid ");
+                    setErrorFor(cine, 5, "Numéro de CINE invalid ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(cine, 4);
+                    setSuccessFor(cine, 5);
                 }
                 if(adresse.value.trim() === '' ) {
-                    setErrorFor(adresse, 5, "Obligatoire ");
+                    setErrorFor(adresse, 6, "Obligatoire ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(adresse, 5);
+                    setSuccessFor(adresse, 6);
                 }
                 if(errorsCount!=0) return false;
                 return true;
     
             case 2 :
-                if(!isValidYear(bacYear.value.trim())) {
-                    setErrorFor(bacYear, 7, "Année d'obtention invalide ");
+                if(!isCodeMassar(codeMassar.value.trim())){
+                    setErrorFor(codeMassar, 8, "Code incorrect ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(bacYear, 7);
+                    setSuccessFor(codeMassar, 8);
+                }
+                if(!isValidYear(bacYear.value.trim())) {
+                    setErrorFor(bacYear, 9, "Année d'obtention invalide ");
+                    errorsCount++;
+                }else{
+                    setSuccessFor(bacYear, 9);
                 }
                 if(!isValidNote(bacNote.value.trim(),document.getElementById('bacmention').value)) {
-                    setErrorFor(bacNote, 8, "Note invalide ou ne correspond pas à votre mention");
-                    setErrorFor(bacMention, 9, "La mention ne correspond pas à votre note ");
+                    setErrorFor(bacNote, 10, "Note invalide ou ne correspond pas à votre mention");
+                    setErrorFor(bacMention, 11, "La mention ne correspond pas à votre note ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(bacNote, 8);
-                    setSuccessFor(bacMention, 9);
+                    setSuccessFor(bacNote, 10);
+                    setSuccessFor(bacMention, 11);
                 }
                 if(!isValidFile(imgScan.value)){
-                    setErrorFor(imgScan, 10, "Fichiers de type .img .png ou .pdf uniquement ");
+                    setErrorFor(imgScan, 12, "Fichiers de type .jpg .jpeg .png ou .pdf uniquement ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(imgScan, 10);
+                    setSuccessFor(imgScan, 12);
                 }
                 if(!isValidFile(bacScan.value)){
-                    setErrorFor(bacScan, 11,  "Fichiers de type .img .png ou .pdf uniquement ");
+                    setErrorFor(bacScan, 13,  "Fichiers de type .jpg .jpeg .png ou .pdf uniquement ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(bacScan, 11);
+                    setSuccessFor(bacScan, 13);
                 }
                 if(!isValidFile(recuScan.value)){
-                    setErrorFor(recuScan, 12,  "Fichiers de type .img .png ou .pdf uniquement ");
+                    setErrorFor(recuScan, 14,  "Fichiers de type .jpg .jpeg .png ou .pdf uniquement ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(recuScan, 12);
+                    setSuccessFor(recuScan, 14);
                 }
                 if(errorsCount!=0) return false;
                 return true;
@@ -192,9 +198,12 @@ $(document).ready(function(){
                 return true;
         }   
     }
-    
+
+    function isPassword(pwd){
+        return pwd !== undefined && pwd !== null && pwd.length>8 ;
+    }
     function isCINE(cine){
-        return /^[A-Za-z]?[A-Za-z][0-9]{6}$/.test(cine);
+        return /^[A-Za-z]?[A-Za-z][0-9]{6}[0-9]*$/.test(cine);
     }
     function isDate(date){
         return /^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/]\d{4}$/.test(date);
@@ -222,13 +231,24 @@ $(document).ready(function(){
             return false;
         }
     }
+    function isCodeMassar(codeMassar){
+        return /^[A-Za-z][0-9]{9}$/.test(codeMassar);
+    }
     function isValidFile(file){
-        var allowed_extensions = ["jpg","png","pdf"];
+        var allowed_extensions = ["jpg","png","pdf","jpeg"];
         var file_extension = file.split('.').pop().toLowerCase();
         for(var i = 0; i <= allowed_extensions.length; i++){
             if(allowed_extensions[i]==file_extension) return true;
         }
         return false;
     }
-
-
+    $('form input').keydown(function (e) {
+        if (e.keyCode == 13) {
+            var inputs = $(this).parents("form").eq(0).find(":input");
+            if (inputs[inputs.index(this) + 1] != null) {                    
+                inputs[inputs.index(this) + 1].focus();
+            }
+            e.preventDefault();
+            return false;
+        }
+    });
