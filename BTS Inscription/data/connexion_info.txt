@@ -1,4 +1,0 @@
-server=localhost
-user=root
-password=mysql
-database=bts_inscription_2021

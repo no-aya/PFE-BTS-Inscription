@@ -27,7 +27,7 @@
                 <p>Une fois les listes finales sont affichés, vérifiez votre admission dans nos centres sur le site <span>e-bts.men.gov.ma</span> . Si vous y figurez, vous devez compléter votre dossier électronique sur notre site afin de confirmer votre choix.</p>
                 <p class="warning-text">Attention : Ce n’est pas une inscription définitive !</p>
                 <p>Le service de scolarité de l’établissement effectuera un tri, selon l’ordre de mérite et le nombre de places disponibles.</p>
-                <a href="candidatureForm.php" style="text-decoration: none;"><div class="azure-button">Procéder à la pré-inscription</div></a>
+                <a href="candidatureBac.php" style="text-decoration: none;"><div class="azure-button">Procéder à la pré-inscription</div></a>
             </div>
             <div class="number"> <img src="../images/2.png" alt="2"></div>
         </div>

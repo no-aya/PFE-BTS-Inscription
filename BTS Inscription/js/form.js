@@ -86,6 +86,7 @@ $(document).ready(function(){
     const cine = document.getElementsByName('cine')[0];
     const adresse = document.getElementsByName('adresse')[0];
     const ville = document.getElementById('ville').value;
+    const codeMassar=document.getElementsByName('codeMassar')[0];
     const bacYear=document.getElementsByName('bacyear')[0];
     const bacNote=document.getElementsByName('note')[0];
     const bacMention=document.getElementById('bacmention')[0];
@@ -93,15 +94,6 @@ $(document).ready(function(){
     const bacScan=document.getElementsByClassName('files')[1];
     const recuScan=document.getElementsByClassName('files')[2];
 
-    function quatriemeChoix(){
-        if(document.getElementById('bactype').selectedIndex==7 || document.getElementById('bactype').selectedIndex==8) {
-            document.getElementsByClassName('quatrieme-choix')[0].classList.add('unvalid-choix');
-            document.getElementsByClassName('quatrieme-choix')[1].classList.add('unvalid-choix');
-        }else{
-            document.getElementsByClassName('quatrieme-choix')[0].classList.remove('unvalid-choix');
-            document.getElementsByClassName('quatrieme-choix')[1].classList.remove('unvalid-choix');
-        }
-    }
     function setErrorFor(input, index, message) {
         input.className = 'error';
         document.getElementsByClassName('fas')[index].classList.add('error');
@@ -162,37 +154,43 @@ $(document).ready(function(){
                 return true;
     
             case 2 :
-                if(!isValidYear(bacYear.value.trim())) {
-                    setErrorFor(bacYear, 8, "Année d'obtention invalide ");
+                if(!isCodeMassar(codeMassar.value.trim())){
+                    setErrorFor(codeMassar, 8, "Code incorrect ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(bacYear, 8);
+                    setSuccessFor(codeMassar, 8);
+                }
+                if(!isValidYear(bacYear.value.trim())) {
+                    setErrorFor(bacYear, 9, "Année d'obtention invalide ");
+                    errorsCount++;
+                }else{
+                    setSuccessFor(bacYear, 9);
                 }
                 if(!isValidNote(bacNote.value.trim(),document.getElementById('bacmention').value)) {
-                    setErrorFor(bacNote, 9, "Note invalide ou ne correspond pas à votre mention");
-                    setErrorFor(bacMention, 10, "La mention ne correspond pas à votre note ");
+                    setErrorFor(bacNote, 10, "Note invalide ou ne correspond pas à votre mention");
+                    setErrorFor(bacMention, 11, "La mention ne correspond pas à votre note ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(bacNote, 9);
-                    setSuccessFor(bacMention, 10);
+                    setSuccessFor(bacNote, 10);
+                    setSuccessFor(bacMention, 11);
                 }
                 if(!isValidFile(imgScan.value)){
-                    setErrorFor(imgScan, 11, "Fichiers de type .img .png ou .pdf uniquement ");
+                    setErrorFor(imgScan, 12, "Fichiers de type .jpg .jpeg .png ou .pdf uniquement ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(imgScan, 11);
+                    setSuccessFor(imgScan, 12);
                 }
                 if(!isValidFile(bacScan.value)){
-                    setErrorFor(bacScan, 12,  "Fichiers de type .img .png ou .pdf uniquement ");
+                    setErrorFor(bacScan, 13,  "Fichiers de type .jpg .jpeg .png ou .pdf uniquement ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(bacScan, 12);
+                    setSuccessFor(bacScan, 13);
                 }
                 if(!isValidFile(recuScan.value)){
-                    setErrorFor(recuScan, 13,  "Fichiers de type .img .png ou .pdf uniquement ");
+                    setErrorFor(recuScan, 14,  "Fichiers de type .jpg .jpeg .png ou .pdf uniquement ");
                     errorsCount++;
                 }else{
-                    setSuccessFor(recuScan, 13);
+                    setSuccessFor(recuScan, 14);
                 }
                 if(errorsCount!=0) return false;
                 return true;
@@ -205,7 +203,7 @@ $(document).ready(function(){
         return pwd !== undefined && pwd !== null && pwd.length>8 ;
     }
     function isCINE(cine){
-        return /^[A-Za-z]?[A-Za-z][0-9]{6}$/.test(cine);
+        return /^[A-Za-z]?[A-Za-z][0-9]{6}[0-9]*$/.test(cine);
     }
     function isDate(date){
         return /^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/]\d{4}$/.test(date);
@@ -233,11 +231,24 @@ $(document).ready(function(){
             return false;
         }
     }
+    function isCodeMassar(codeMassar){
+        return /^[A-Za-z][0-9]{9}$/.test(codeMassar);
+    }
     function isValidFile(file){
-        var allowed_extensions = ["jpg","png","pdf"];
+        var allowed_extensions = ["jpg","png","pdf","jpeg"];
         var file_extension = file.split('.').pop().toLowerCase();
         for(var i = 0; i <= allowed_extensions.length; i++){
             if(allowed_extensions[i]==file_extension) return true;
         }
         return false;
     }
+    $('form input').keydown(function (e) {
+        if (e.keyCode == 13) {
+            var inputs = $(this).parents("form").eq(0).find(":input");
+            if (inputs[inputs.index(this) + 1] != null) {                    
+                inputs[inputs.index(this) + 1].focus();
+            }
+            e.preventDefault();
+            return false;
+        }
+    });

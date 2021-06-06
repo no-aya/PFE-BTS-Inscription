@@ -23,13 +23,23 @@
             <div class="info-card-side info-card-right col-1">
                 <h1>Déja un candidat?</h1>
                 <div class="info-card-description">Connectez-vous pour modifier ou compléter votre dossier avant la clöture des inscriptions.</div>
-                <form action="" class="connexionForm">
+                <?php 
+                if(isset($_POST['submit'])){
+                    include("../data/sqlFunctions.php");
+                    if(login($_POST['codeMassar'],$_POST['motDePasse'])){
+                        header("location:candidatureForm.php");
+                    }else{
+                        echo "<span style=\"color:red\">Vérifiez vos coordonnées!</span>";
+                    }
+                }
+                ?>
+                <form method="post" action="" class="connexionForm">
                     <label for="codeMassar">Code Massar :</label>
-                    <input type="text" name="codeMassar" id="codeMassar">
+                    <input type="text" name="codeMassar" id="codeMassar" class="connexionFormInput" value="<?=$_POST['codeMassar']?>">
                     <label for="motDePasse">Mot de passe :</label>
-                    <input type="password" name="motDePasse" id="motDePasse">
+                    <input type="password" name="motDePasse" id="motDePasse" class="connexionFormInput">
+                    <input type="submit" name="submit" class="connexionFormSubmit" value="Se connecter" /> 
                 </form>
-                <a href=""><div class="azure-button">Se connecter</div></a>
             </div>
         </div>
         <?php include("../components/credits.html")?>
