@@ -1,9 +1,9 @@
 <?php 
 session_start();
+ob_start();
 include ('../data/connexion.php');
-if(!isset($_GET['typeBac'])&&!isset($_SESSION['typeBac'])) header("location:candidatureBac.php");
+if(!isset($_SESSION['typeBac'])) header("location:candidatureBac.php");
 else{
-    $_SESSION['typeBac']=$_GET['typeBac'];
     switch ($_SESSION['typeBac']) {
         case 'scientifique':
             $typeBacFull="Bac série scientifique";
@@ -22,7 +22,10 @@ else{
             break;
     }
 }
+require("candidaturevalidation.php");
+
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -46,7 +49,7 @@ else{
                     <div class="card">
                         <h2 id="heading" class="page-title">Pré-inscription</h2>
                         <p style="text-align: center;">Veuillez remplir soigneusement le formulaire suivant, toutes ces informations seront prises en charge afin de confirmer votre inscription.</p>
-                        <form id="msform" action="../data/candidaturevalidation.php" method="post" >
+                        <form id="msform"  method="post">
                             <!-- progressbar -->
                             <ul id="progressbar">
                                 <li class="active" id="account"><strong>Personelles</strong></li>
@@ -56,7 +59,7 @@ else{
                             </ul>
 
                             <!-- fieldsets -->
-                            <fieldset>
+                            <div class="fieldset fieldset-active">
                                 <div class="form-card">
                                     <div class="row">
                                         <div>
@@ -74,16 +77,16 @@ else{
                                         <option value="garçon">Garçon</option>
                                         <option value="fille">Fille</option>
                                     </select>
-                                    <label class="fieldlabels">Email : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="email" name="email" placeholder="Email" value="<?php echo $_POST['email']?>"/> 
+                                    <label class="fieldlabels">Email : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="email" name="email" placeholder="Email" value="<?=$_POST['email']?>"/> 
                                     <label class="fieldlabels">Date de naissance : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="birthday" value="<?php echo $_POST['birthday']?>" placeholder="jj/mm/aaaa"/> 
-                                    <label class="fieldlabels">CINE : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="cine" value="<?php echo $_POST['cine']?>" placeholder="Nº carte nationale" /> 
-                                    <label class="fieldlabels">Adresse : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="adresse" value="<?php echo $_POST['adresse']?>" placeholder="Où habitez-vous?" />
+                                    <label class="fieldlabels">CINE : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="cine" value="<?=$_POST['cine']?>" placeholder="Nº carte nationale" /> 
+                                    <label class="fieldlabels">Adresse : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="adresse" value="<?=$_POST['adresse']?>" placeholder="Où habitez-vous?" />
                                     <label class="fieldlabels">Ville : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> 
-                                    <input type="text" name="ville" id="ville" value="<?php echo $_POST['ville']?>" placeholder="Ville de naissance">
+                                    <input type="text" name="ville" id="ville" value="<?=$_POST['ville']?>" placeholder="Ville de naissance">
                                 </div> 
                                 <input type="button" name="next" class="next action-button" value="Suivant" />
-                            </fieldset>
-                            <fieldset>
+                            </div>
+                            <div class="fieldset">
                                 <div class="form-card">
                                     <div class="row">
                                         <div>
@@ -114,8 +117,8 @@ else{
                                 </div> 
                                 <input type="button" name="next" class="next action-button" value="Suivant" /> 
                                 <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
-                            </fieldset>
-                            <fieldset>
+                            </div>
+                            <div class="fieldset">
                                 <div class="form-card">
                                     <div class="row">
                                         <div>
@@ -138,12 +141,12 @@ else{
                                     }
                                     ?>
                                 </div> 
-                                <input type="submit" class="next action-button" value="Confirmer"/> 
+                                <input type="submit" name="endo" class="next action-button" value="Terminer"/> 
                                 <input type="button" name="previous" class="previous action-button-previous" value="Précédent" />
-                            </fieldset>
-                            <fieldset>
+                                </div>
+                            <div class="fieldset">
                                 <p>Un moment s'il vous plait....</p>
-                            </fieldset>
+                                </div>
                         </form>
                     </div>
                 </div>
@@ -151,7 +154,6 @@ else{
         </div>
         <?php include("../components/credits.html")?>
     </div>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="../js/form.js"></script>
 </body>

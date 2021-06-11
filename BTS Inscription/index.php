@@ -37,6 +37,7 @@ if(isset($_POST['submit'])){
         </div>
         <div class="row-1">
             <div class="col-1">
+               <a href="pages/espaceAdmin/adminlogin.php">Click</a> 
                 <h1>Votre parcours professionnel commence dès maintenant</h1>
                 <p>Une formation dans le métier de technicien, qui s’étale sur 2 ans, ouverte aux titulaires du baccalauréat.</p>
                 <?php include("components/candidater.html") ?>

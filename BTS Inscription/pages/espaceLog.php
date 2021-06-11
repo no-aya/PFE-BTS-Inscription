@@ -16,7 +16,7 @@
         <div class="log-section">
             <div class="log-box">
                 <p>Cet espace est réservé aux étudiants déjà inscrits à l’établissement.</p>
-                <form class="c-form" action="espaceEtudiant/acceuil.html">
+                <form class="c-form" action="espaceEtudiant/acceuil.php">
                     <input class="c-form__input" placeholder="Code Massar" type="text" pattern="[A-Za-z][0-9]+">
                     <label class="c-form__buttonLabel" for="checkbox">
                         <button class="c-form__button" type="submit"><img src="../images/send-icon.svg" alt=""></button>

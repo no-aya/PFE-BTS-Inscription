@@ -1,7 +1,8 @@
 <?php 
 session_start();
+ob_start();
 include ('connexion.php');
-if(empty($_POST)) header("location:../pages/candidatureForm.php");
+if(!isset($_POST['submit'])) header("location:../pages/candidatureForm.php");
 else{
     if(trim($_POST['lname'])=="") $errMsg[]="Vous n'avez pas saisit votre nom";
     if(trim($_POST['fname'])=="") $errMsg[]="Vous n'avez pas saisit votre prénom";
@@ -36,7 +37,7 @@ else{
     while($row = mysqli_fetch_assoc($result)) $filieres[] = $row['filiereID'];
     if(!in_array($_POST['pchoix'], $filieres) || !in_array($_POST['dchoix'], $filieres) || !in_array($_POST['tchoix'], $filieres) || !in_array($_POST['qchoix'], $filieres)) $errMsg[]="Choix des filières invalide";
     if(!empty($errMSG)){
-        $_SESSION['errMSG']=$errMsg;
+        //$_SESSION['errMSG']=$errMsg;
         header("location:../pages/candidatureFinal.php");
     }else{
         include('sqlFunctions.php');
@@ -53,9 +54,6 @@ else{
         $file=explode('.',$_POST['picRecu']);
         insertDocument("recu",$file[1],"to be determinated...",$candidatID);
         header("location:../pages/candidatureFinal.php");
-
     }
-    
-    
 }
 ?>

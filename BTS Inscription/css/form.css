@@ -30,7 +30,7 @@ p {
     margin-top: 20px
 }
 
-#msform fieldset {
+#msform .fieldset {
     background: white;
     border: 0 none;
     border-radius: 0.5rem;
@@ -38,16 +38,13 @@ p {
     width: 100%;
     margin: 0;
     padding-bottom: 20px;
-    position: relative
+    position: relative;
 }
 
 .form-card {
     text-align: left
 }
 
-#msform fieldset:not(:first-of-type) {
-    display: none
-}
 
 #msform input, #msform select,
 #msform textarea {
@@ -239,4 +236,11 @@ p {
 }
 .unvalid-choix{
     display: none;
+}
+
+.fieldset{
+    display: none;
+}
+.fieldset-active{
+    display: block;
 }
