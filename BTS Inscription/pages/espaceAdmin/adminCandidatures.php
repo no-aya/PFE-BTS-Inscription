@@ -8,7 +8,7 @@ session_start();
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
       <?php include("../../components/adminnav.php");
-       $countDays=countDays(1);
+       $countDays=countDays(3);
       ?>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
@@ -70,7 +70,7 @@ session_start();
                         <h6 class="text-muted font-weight-normal">Jours restants</h6>
                         <?php }else{ ?>
                           <div class="d-flex d-sm-block d-md-flex align-items-center">
-                          <a href="#"><div class="badge badge-success">Voir les listes</div></a>
+                          <a href="adminFiliere.php"><div class="badge badge-success">Voir les listes</div></a>
                           </div>
                         <?php } ?>
                       </div>

@@ -16,7 +16,7 @@ function insertCandidature($typeBac, $moyenneBac, $anneeObtention, $motDePasse){
 function insertEtudiant($codeMassar,$cine,$nom,$prenom,$sexe,$ville,$adresse,$email,$candidatureID){
     if($sexe=="garçon") $sexe=0;
     elseif ($sexe=="fille") $sexe=1;
-    $sql="INSERT INTO etudiant VALUES ('$codeMassar', '$cine', '$nom', '$prenom', $sexe, '$ville', '$adresse', '$email', NULL, '$candidatureID');";
+    $sql="INSERT INTO etudiant VALUES ('$codeMassar', '$cine', '$nom', '$prenom', $sexe, '$ville', '$adresse', '$email', NULL,NULL, '$candidatureID');";
     include ('connexion.php');
     mysqli_query($connexion,$sql);
 }
@@ -209,4 +209,38 @@ function checkCodeMassar($codeMassar){
     if(mysqli_num_rows($result)==0) return false;
     else return true;
 }
+function getListe($filiereID){
+    include ('connexion.php');
+    $liste=[];
+    $sql="SELECT DISTINCT candidatureID FROM candidature NATURAL JOIN choix WHERE filiereID='$filiereID' AND situationCandidature=1";
+    if($filiereID!="CG"){
+        $sql75= "SELECT * FROM candidature WHERE `typeBac`='technique' AND candidatureID IN ($sql) ORDER BY `moyenneBac` DESC";
+        $sql25= "SELECT * FROM candidature WHERE `typeBac`!='technique' AND candidatureID IN ($sql) ORDER BY `moyenneBac` DESC";
+    }else{
+        $sql75= "SELECT * FROM candidature WHERE `typeBac`='economique' AND candidatureID IN ($sql) ORDER BY `moyenneBac` DESC";
+        $sql25= "SELECT * FROM candidature WHERE `typeBac`!='technique' AND `typeBac`!='economique' AND candidatureID IN ($sql) ORDER BY `moyenneBac` DESC";
+    }
+    $result=mysqli_query($connexion,$sql75);
+    while ($row=mysqli_fetch_assoc($result)) {
+        $liste['75'][]=$row['candidatureID'];
+    }
+    $result=mysqli_query($connexion,$sql25);
+    while ($row=mysqli_fetch_assoc($result)) {
+    $liste['25'][]=$row['candidatureID'];
+    }
+    return $liste;
+}
+function isInscrit($candidatureID){
+    include ('connexion.php');
+    $sql="SELECT codeMassar FROM etudiant WHERE candidatureID=$candidatureID AND numInscription IS NOT NULL";
+    $result=mysqli_query($connexion,$sql);
+    if(mysqli_num_rows($result)==0) return false;
+    else return true;
+}
+function getFiliere(){
+    include ('connexion.php');
+    $sql="SELECT * FROM filiere";
+    return mysqli_query($connexion,$sql);
+}
+
 ?>
