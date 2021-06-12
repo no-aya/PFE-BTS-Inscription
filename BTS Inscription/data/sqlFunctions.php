@@ -202,4 +202,11 @@ function getCandidatId(){
     if(mysqli_num_rows($result)==0) return false;
     return mysqli_fetch_assoc($result)['candidatureId'];
 }
+function checkCodeMassar($codeMassar){
+    include ('connexion.php');
+    $sql = "SELECT codeMassar FROM etudiant WHERE codeMassar='$codeMassar'";
+    $result=mysqli_query($connexion,$sql);
+    if(mysqli_num_rows($result)==0) return false;
+    else return true;
+}
 ?>

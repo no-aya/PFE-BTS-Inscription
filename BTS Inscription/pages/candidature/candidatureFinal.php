@@ -1,24 +1,25 @@
 <?php 
 session_start();
-include ('../data/connexion.php');
+include ('../../data/connexion.php');
 if(isset($_SESSION['errMSG'])){
     $errMSG=$_SESSION['errMSG'];
 }
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <?php 
-        require_once("../components/pageStart.html");
+        require_once("../../components/pageStart2.html");
     ?>
-    <link rel="stylesheet" href="../css/form.css"> 
+    <link rel="stylesheet" href="../../css/form.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />   
     <title>Formulaire</title>
 </head>
 <body>
     <div class="main-container">
         <?php 
-            require_once("../components/header.html");
+            require_once("../../components/header2.html");
         ?>
     </div>
     <div class="main-content main-content-3">
@@ -40,13 +41,10 @@ if(isset($_SESSION['errMSG'])){
                                         <div>
                                             <h2 class="fs-title">Terminer:</h2>
                                         </div>
-                                        <div>
-                                            <h2 class="steps">Étape 4 - 4</h2>
-                                        </div>
                                     </div> <br><br>
-                                    <?php if(empty($errMSG)) include("../components/success.html");
+                                    <?php if(empty($errMSG)) include("../../components/success.html");
                                     else {
-                                        include("../components/failed.html");
+                                        include("../../components/failed.html");
                                         echo "<p>Erreurs :</p>";
                                         foreach ($errMSG as $key) {
                                             echo "<li>$key</li>";
@@ -64,7 +62,7 @@ if(isset($_SESSION['errMSG'])){
             </div>
         </div>
 
-        <?php include("../components/credits.html")?>
+        <?php include("../../components/credits.html")?>
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>

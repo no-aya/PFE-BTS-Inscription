@@ -18,7 +18,7 @@
             <div class="info-card-side info-card-left col-1">
                 <h1>Nouveau candidat</h1>
                 <div class="info-card-description">Procéder au formulaire de candidature pour nouveau inscrits</div>
-                <a href="candidatureDetails.php"><div class="azure-button">Nouvelle candidature</div></a>
+                <a href="candidature/candidatureDetails.php"><div class="azure-button">Nouvelle candidature</div></a>
             </div>
             <div class="info-card-side info-card-right col-1">
                 <h1>Déja un candidat?</h1>

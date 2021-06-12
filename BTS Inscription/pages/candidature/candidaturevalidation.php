@@ -1,9 +1,23 @@
 <?php 
-session_start();
-ob_start();
-include ('connexion.php');
-if(!isset($_POST['submit'])) header("location:../pages/candidatureForm.php");
-else{
+if(!empty($_POST['endo'])){
+    echo $_POST['lname']."\n";
+    echo $_POST['fname']."\n";
+    echo $_POST['pwd']."\n";
+    echo$_POST['email']."\n";
+    echo $_POST['birthday']."\n";
+    echo $_POST['adresse']."\n";
+    echo $_POST['ville']."\n";
+    echo $_POST['bacyear']."\n";
+    echo $_POST['codeMassar']."\n";
+    echo $_POST['note']."\n";
+    echo $_POST['pchoix']."\n";
+    echo $_POST['dchoix']."\n";
+    echo $_POST['tchoix']."\n";
+    echo $_POST['qchoix']."\n";
+    echo $_POST['picCandidat']."\n";
+    echo $_POST['picBac']."\n";
+    echo $_POST['picRecu']."\n";
+
     if(trim($_POST['lname'])=="") $errMsg[]="Vous n'avez pas saisit votre nom";
     if(trim($_POST['fname'])=="") $errMsg[]="Vous n'avez pas saisit votre prénom";
     if($_POST['pwd']=="") $errMsg[]="Vous n'avez pas saisit votre mot de passe";
@@ -37,10 +51,11 @@ else{
     while($row = mysqli_fetch_assoc($result)) $filieres[] = $row['filiereID'];
     if(!in_array($_POST['pchoix'], $filieres) || !in_array($_POST['dchoix'], $filieres) || !in_array($_POST['tchoix'], $filieres) || !in_array($_POST['qchoix'], $filieres)) $errMsg[]="Choix des filières invalide";
     if(!empty($errMSG)){
-        //$_SESSION['errMSG']=$errMsg;
-        header("location:../pages/candidatureFinal.php");
+        $_SESSION['errMSG']=$errMsg;
+        //header("location:../pages/candidatureFinal.php");
+        print_r($errMSG);
     }else{
-        include('sqlFunctions.php');
+        include('../data/sqlFunctions.php');
         $candidatID=insertCandidature($_SESSION['typeBac'],$_POST['note'],$_POST['bacyear'],$_POST['pwd']);
         insertEtudiant($_POST['codeMassar'],$_POST['cine'],$_POST['lname'],$_POST['fname'],$_POST['sexe'],$_POST['ville'],$_POST['adresse'],$_POST['email'],$candidatID);
         insertChoix($_POST['pchoix'],$candidatID,1);
@@ -53,7 +68,7 @@ else{
         insertDocument("bac",$file[1],"to be determinated...",$candidatID);
         $file=explode('.',$_POST['picRecu']);
         insertDocument("recu",$file[1],"to be determinated...",$candidatID);
-        header("location:../pages/candidatureFinal.php");
+        //header("location:../pages/candidatureFinal.php");
     }
 }
 ?>
