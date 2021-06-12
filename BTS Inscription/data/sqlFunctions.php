@@ -4,9 +4,8 @@ function getLastAcceuil(){
     include ('connexion.php');
     return mysqli_query($connexion,$sql);
 }
-function insertCandidature($typeBac, $moyenneBac, $anneeObtention, $motDePasse){
-    $motDePasse=md5($motDePasse);
-    $sql="INSERT INTO candidature VALUES(NULL,CURDATE(),'$typeBac', '$moyenneBac', '$anneeObtention', '$motDePasse',NULL)";
+function insertCandidature($typeBac, $moyenneBac, $anneeObtention){
+    $sql="INSERT INTO candidature VALUES(NULL,CURDATE(),'$typeBac', '$moyenneBac', '$anneeObtention', NULL)";
     include ('connexion.php');
     mysqli_query($connexion,$sql);
     $result=mysqli_query($connexion,"SELECT MAX(`candidatureID`) FROM candidature");
@@ -242,5 +241,4 @@ function getFiliere(){
     $sql="SELECT * FROM filiere";
     return mysqli_query($connexion,$sql);
 }
-
 ?>

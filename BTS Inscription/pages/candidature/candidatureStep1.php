@@ -41,10 +41,6 @@ if (isset($_POST['submit'])){
         if(!preg_match($patern,$_POST['email'])) $_SESSION['errMSG'][]="Votre email est invalid";
     }
     if($_POST['birthday']=="") $_SESSION['errMSG'][]="Vous n'avez pas saisit votre date de naissance";
-    else{
-        $date=explode('/',$_POST['birthday']);
-        $_POST['birthday']=$date[2].'-'.$date[1].'-'.$date[0];
-    }
     if($_POST['cine']=="") $_SESSION['errMSG'][]="Vous n'avez pas saisit votre CNIE";
     else{
         $patern='/^[A-Za-z]?[A-Za-z][0-9]{6}[0-9]*$/';
@@ -57,7 +53,7 @@ if (isset($_POST['submit'])){
     else if($_SESSION['typeBac']!='economique' && $_SESSION['typeBac']!='technique' && $_SESSION['typeBac']!='scientifique') $_SESSION['errMSG'][]="Le type de votre bac est invalid";
     if($_POST['note']==""|| is_float($_POST['note'])) $_SESSION['errMSG'][]="Vous n'avez pas saisit votre note";
     if(empty($_SESSION['errMSG'])){
-        $candidatID=insertCandidature($_SESSION['typeBac'],$_POST['note'],$_POST['bacyear'],$_POST['pwd']);
+        $candidatID=insertCandidature($_SESSION['typeBac'],$_POST['note'],$_POST['bacyear']);
         $_SESSION['candidatID']=$candidatID;
         insertEtudiant($_POST['codeMassar'],$_POST['cine'],$_POST['lname'],$_POST['fname'],$_POST['sexe'],$_POST['ville'],$_POST['adresse'],$_POST['email'],$candidatID);
         header("location:candidatureStep2.php");
@@ -112,14 +108,13 @@ if (isset($_POST['submit'])){
                                     <label class="fieldlabels">Code Massar : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="codeMassar" value="<?php echo $_POST['codeMassar']?>" placeholder="A000000000"/> 
                                     <label class="fieldlabels">Nom : *<span class="error-message"></span> <i class="fas fa-exclamation-circle"></i></label><input type="text" name="lname" placeholder="Nom" value="<?php echo $_POST['lname']?>" />
                                     <label class="fieldlabels">Prénom: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="fname" placeholder="Prénom" value="<?php echo $_POST['fname']?>" />
-                                    <label class="fieldlabels">Mot de passe: *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="password" autocomplete="current-password" name="pwd" value="<?php echo $_POST['pwd']?>" placeholder="Vous pouvez l'utiliser ultérieurement pour modifier vos données" /> 
                                     <label class="fieldlabels">Sexe :</label> 
                                     <select name="sexe" id="sexe">
                                         <option value="garçon">Garçon</option>
                                         <option value="fille">Fille</option>
                                     </select>
                                     <label class="fieldlabels">Email : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="email" name="email" placeholder="Email" value="<?=$_POST['email']?>"/> 
-                                    <label class="fieldlabels">Date de naissance : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="birthday" value="<?php echo $_POST['birthday']?>" placeholder="jj/mm/aaaa"/> 
+                                    <label class="fieldlabels">Date de naissance : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="date" name="birthday" value="<?php echo $_POST['birthday']?>" placeholder="jj/mm/aaaa"/> 
                                     <label class="fieldlabels">CINE : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="cine" value="<?=$_POST['cine']?>" placeholder="Nº carte nationale" /> 
                                     <label class="fieldlabels">Adresse : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> <input type="text" name="adresse" value="<?=$_POST['adresse']?>" placeholder="Où habitez-vous?" />
                                     <label class="fieldlabels">Ville : *<span class="error-message"></span><i class="fas fa-exclamation-circle"></i></label> 
