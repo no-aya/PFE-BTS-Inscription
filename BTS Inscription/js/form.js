@@ -3,18 +3,19 @@ $(document).ready(function(){
     var current_fs, next_fs, previous_fs; //fieldsets
     var opacity;
     var current = 1;
-    var steps = $("fieldset").length;
+    var steps = $(".fieldset").length;
     
     setProgressBar(current);
 
+    
     $(".next").click(function(){
         if(!checkInputs(current)) return false;
         current_fs = $(this).parent();
         next_fs = $(this).parent().next();
         
         //Add Class Active
-        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-        
+        $("#progressbar li").eq($(".fieldset").index(next_fs)).addClass("active");
+        $(".fieldset").eq($(".fieldset").index(next_fs)).addClass(".fieldset-active");
         //show the next fieldset
         next_fs.show();
         //hide the current fieldset with style
@@ -41,7 +42,7 @@ $(document).ready(function(){
     previous_fs = $(this).parent().prev();
     
     //Remove class active
-    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+    $("#progressbar li").eq($(".fieldset").index(current_fs)).removeClass("active");
     
     //show the previous fieldset
     previous_fs.show();
@@ -242,13 +243,3 @@ $(document).ready(function(){
         }
         return false;
     }
-    $('form input').keydown(function (e) {
-        if (e.keyCode == 13) {
-            var inputs = $(this).parents("form").eq(0).find(":input");
-            if (inputs[inputs.index(this) + 1] != null) {                    
-                inputs[inputs.index(this) + 1].focus();
-            }
-            e.preventDefault();
-            return false;
-        }
-    });

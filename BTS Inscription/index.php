@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
     <div class="main-container">
         <div class="header">
             <nav>
-                <a href="#"><img src="images/BTS Logo white.svg" alt="BTS Lycée Mohammed VI"></a>
+                <a href="."><img src="images/BTS Logo white.svg" alt="BTS Lycée Mohammed VI"></a>
                 <ul>
                     <li ><a href="#" class="active-page">Acceuil</a></li>
                     <li><a href="pages/filieres.php">Filières</a></li>
@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
             </nav>  
         </div>
         <div class="row-1">
-            <div class="col-1">
+            <div class="col-1"> 
                 <h1>Votre parcours professionnel commence dès maintenant</h1>
                 <p>Une formation dans le métier de technicien, qui s’étale sur 2 ans, ouverte aux titulaires du baccalauréat.</p>
                 <?php include("components/candidater.html") ?>
