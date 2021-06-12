@@ -44,7 +44,7 @@ $i=0;
                             <td><?=$row['nom']?> <?=$row['prenom']?></td>
                             <td>Bac <?=$row['typeBac']?> </td>
                             <td><?=$row['moyenneBac']?></td>
-                            <td><?=($row['numInscription']==NULL)? "<a href=\"#\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>": $row['numInscription'] ?></td>
+                            <td><?=($row['numInscription']==NULL)? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>": $row['numInscription'] ?></td>
                           </tr>
                           <?php $bacMain--; $i++;} ?>
 
@@ -57,7 +57,7 @@ $i=0;
                             <td><?=$row['nom']?> <?=$row['prenom']?></td>
                             <td>Bac <?=$row['typeBac']?> </td>
                             <td><?=$row['moyenneBac']?></td>
-                            <td><?=($row['numInscription']==NULL)? "<a href=\"#\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>": $row['numInscription'] ?></td>
+                            <td><?=($row['numInscription']==NULL)? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiere=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>": $row['numInscription'] ?></td>
                           </tr>
                           <?php $bacAutres--; $i++;} ?>
                         </tbody>

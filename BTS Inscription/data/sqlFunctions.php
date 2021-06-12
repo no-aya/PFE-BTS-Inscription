@@ -241,4 +241,14 @@ function getFiliere(){
     $sql="SELECT * FROM filiere";
     return mysqli_query($connexion,$sql);
 }
+function confirmerInscription($codeMassar,$filiereID){
+    include ('connexion.php');
+    $result=mysqli_query($connexion,"SELECT MAX(numInscription) FROM etudiant");
+    $numInscription=mysqli_fetch_assoc($result)['MAX(numInscription)'];
+    if($numInscription==NULL) $numInscription=0;
+    $numInscription++;
+    $sql = "UPDATE etudiant SET filiereID='$filiereID', numInscription=$numInscription WHERE codeMassar='$codeMassar'";
+    echo $sql;
+    mysqli_query($connexion,$sql);
+}
 ?>
