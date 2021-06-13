@@ -3,7 +3,10 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
- <?php include("../../components/adminheader.html");?>
+<head>
+  <?php include("../../components/adminheader.html") ?>
+  <title>Candidatures</title>
+  </head>
   <body>
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
@@ -13,6 +16,7 @@ session_start();
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial -->
+        <?php include("../../components/adminnavsmall.php") ?>
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
@@ -25,7 +29,6 @@ session_start();
                         <div class="d-flex d-sm-block d-md-flex align-items-center">
                           <h2 class="mb-0"><?=countCandidatsRetenus()?></h2>
                         </div>
-                        <h6 class="text-muted font-weight-normal">en attente de classement</h6>
                       </div>
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                         <i class="icon-lg mdi mdi-file-check text-primary ml-auto"></i>
@@ -150,25 +153,6 @@ session_start();
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    <!-- plugins:js -->
-    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="assets/vendors/chart.js/Chart.min.js"></script>
-    <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
-    <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
-    <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="assets/js/off-canvas.js"></script>
-    <script src="assets/js/hoverable-collapse.js"></script>
-    <script src="assets/js/misc.js"></script>
-    <script src="assets/js/settings.js"></script>
-    <script src="assets/js/todolist.js"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="assets/js/dashboard.js"></script>
-    <!-- End custom js for this page -->
+    <?php include("../../components/adminjs.html");?>
   </body>
 </html>

@@ -3,6 +3,13 @@
 <head>
     <?php 
         require_once("../components/pageStart.html");
+        include("../data/connexion.php");
+        if(isset($_POST['submit'])){
+            $code=$_POST['code'];
+            $result=mysqli_query($connexion,"SELECT codeMassar FROM etudiant WHERE codeMassar='$code' AND numInscription IS NOT NULL");
+            if(mysqli_num_rows($result)==0) $errMSG="Vous n'êtes pas inscrit dans l'établissement!";
+            else header("location:espaceEtudiant/acceuil.php");
+        }
     ?>    
     <title>Espace étudiant</title>
 </head>
@@ -15,11 +22,11 @@
     <div class="main-log-container">
         <div class="log-section">
             <div class="log-box">
-                <p>Cet espace est réservé aux étudiants déjà inscrits à l’établissement.</p>
-                <form class="c-form" action="espaceEtudiant/acceuil.php">
-                    <input class="c-form__input" placeholder="Code Massar" type="text" pattern="[A-Za-z][0-9]+">
+                <p><?=(isset($errMSG))? $errMSG : "Cet espace est réservé aux étudiants déjà inscrits à l’établissement." ?></p>
+                <form class="c-form" method="post">
+                    <input class="c-form__input" placeholder="Code Massar" type="text" name="code" pattern="[A-Za-z][0-9]+">
                     <label class="c-form__buttonLabel" for="checkbox">
-                        <button class="c-form__button" type="submit"><img src="../images/send-icon.svg" alt=""></button>
+                        <button class="c-form__button" type="submit" name="submit"><img src="../images/send-icon.svg" alt=""></button>
                     </label>
                 </form>
             </div>

@@ -1,4 +1,6 @@
-<?php 
+<?php
+include("../../data/sqlFunctions.php");
+$result=getLastAnonces();
 include("espaceEtudiantHeader.php");
 ?>
     <div class="content-box content-box-two" >
@@ -8,16 +10,13 @@ include("espaceEtudiantHeader.php");
                     <i class="fa fa-chevron-left"></i>
                 </button>
                 <div class="glider">
+                <?php while($row=mysqli_fetch_assoc($result)){ ?>
                     <figure>
-                        <p class="news-title">Les classes BTS suspendus le 15/11/2020</p>
-                        <p class="news-date">Jeudi 07 Janvier 2021</p>
-                        <p class="news-text">La direction de l’établissement vous informe que les classes BTS seront suspendus <span class="news-text-imp">du 15/11/2020 au 20/11/2020</span> en raison des examens finals des classes de 2èmes années baccalauréat toutes les branches. </p>
+                        <p class="news-title"><?=$row['titre']?></p>
+                        <p class="news-date"><?=$row['date']?></p>
+                        <p class="news-text"><?=$row['contenu']?></p>
                     </figure>
-                    <figure>
-                        <p class="news-title">Ouverture des inscriptions au club sportif du BTS</p>
-                        <p class="news-date">Jeudi 07 Janvier 2021</p>
-                        <p class="news-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus veritatis vel possimus nulla et tempore culpa voluptatem consequuntur quis! Tempora inventore, nostrum rem quae libero quisquam est sapiente animi quod!</p>
-                    </figure>
+                <?php } ?>
                 </div>
 
                 <button class="glider-next" style="top:42%;right: 15px;">
