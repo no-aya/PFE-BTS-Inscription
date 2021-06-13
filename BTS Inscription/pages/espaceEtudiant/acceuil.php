@@ -1,8 +1,6 @@
 <?php
 include("../../data/sqlFunctions.php");
 $result=getLastAcceuil();
-?>
-<?php 
 include("espaceEtudiantHeader.php");
 ?>
     <div class="img-slider">

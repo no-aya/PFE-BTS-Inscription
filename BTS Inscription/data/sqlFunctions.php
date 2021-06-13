@@ -4,6 +4,11 @@ function getLastAcceuil(){
     include ('connexion.php');
     return mysqli_query($connexion,$sql);
 }
+function getLastAnonces(){
+    $sql="SELECT * FROM article WHERE categorie=2";
+    include ('connexion.php');
+    return mysqli_query($connexion,$sql);
+}
 function insertCandidature($typeBac, $moyenneBac, $anneeObtention){
     $sql="INSERT INTO candidature VALUES(NULL,CURDATE(),'$typeBac', '$moyenneBac', '$anneeObtention', NULL)";
     include ('connexion.php');
