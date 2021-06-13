@@ -1,0 +1,5 @@
+1. Créer une BD nomée : bts_inscription_2021
+2. Importer le fichier bts_inscription_2021.sql
+3. Pour accéder à l'espace administration utilisez :
+>>>>>>>>> email : admin@admin.com
+>>>>>>>>> password : admin
