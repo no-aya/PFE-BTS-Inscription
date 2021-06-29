@@ -3,6 +3,6 @@
 $countDays=countDays(1);
 
 //Set number of seats for main bacType anD autres
-$BACMAIN = 23;
-$BACAUTRES = 7;
+define("BACMAIN", 23);
+define("BACAUTRES",7);
 ?>

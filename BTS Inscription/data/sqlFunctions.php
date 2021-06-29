@@ -328,7 +328,7 @@ function getListe($filiereID)
     include('connexion.php');
     $liste = [];
     $sql = "SELECT DISTINCT candidatureID FROM candidature NATURAL JOIN choix WHERE filiereID='$filiereID' AND situationCandidature=1";
-    if ($filiereID != "CG") {
+    if ($filiereID != 'CG') {
         $sql75 = "SELECT * FROM candidature WHERE `typeBac`='technique' AND candidatureID IN ($sql) ORDER BY `moyenneBac` DESC";
         $sql25 = "SELECT * FROM candidature WHERE `typeBac`!='technique' AND candidatureID IN ($sql) ORDER BY `moyenneBac` DESC";
     } else {

@@ -79,7 +79,7 @@ checkUser(1);
                         <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
                             <?php while($listDocuments=mysqli_fetch_assoc($document)){ ?>  
                             <div class="item">
-                                <img src="<?=$listDocuments['lien']?>" alt="">
+                                <img src="<?=$listDocuments['lien']?>" alt="" style="height: 50%;">
                             </div>
                             <?php } ?>
                         </div>

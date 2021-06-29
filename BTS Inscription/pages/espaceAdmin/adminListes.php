@@ -10,7 +10,8 @@ checkUser(1);
 if($countDays>=0) header("location:adminAcceuil.php");
 $filiereID = $_GET['id'];
 $result = getListe($filiereID);
-$i = 0;
+$i=0; //for bac main
+$j=0; //for bac autres
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -54,13 +55,13 @@ $i = 0;
                             <th> Prénom</th>
                             <th> Bac </th>
                             <th> Moyenne </th>
-                            <th> N° inscription (Confirmer l'inscription) </th>
+                            <th> N° inscription </th>
                           </tr>
                         </thead>
                         <tbody>
                           <?php
-                          $bacMain = $BACMAIN;
-                          $bacAutres = $BACAUTRES;
+                          $bacMain = BACMAIN;
+                          $bacAutres = BACAUTRES;
                           while ($bacMain > 0 && isset($result['75'][$i])) {
                             $row = getCandidat($result['75'][$i]); ?>
                             <tr>
@@ -77,9 +78,8 @@ $i = 0;
                           } ?>
 
                           <?php
-                          while ($bacAutres > 0 && isset($result['25'][$i])) {
-                            $row = getCandidat($result['75'][$i]);
-                            print_r($row); ?>
+                          while ($bacAutres > 0 && isset($result['25'][$j])) {
+                            $row = getCandidat($result['25'][$j]);?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
                               <td><?= $row['cine'] ?></td>
@@ -90,7 +90,7 @@ $i = 0;
                               <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacAutres--;
-                            $i++;
+                            $j++;
                           } ?>
                         </tbody>
                       </table>
@@ -125,13 +125,13 @@ $i = 0;
                             <th> Prénom</th>
                             <th> Bac </th>
                             <th> Moyenne </th>
-                            <th> N° inscription (Confirmer l'inscription) </th>
+                            <th> N° inscription </th>
                           </tr>
                         </thead>
                         <tbody>
                           <?php
-                          $bacMain = $BACMAIN;
-                          $bacAutres = $BACAUTRES;
+                          $bacMain = BACMAIN;
+                          $bacAutres = BACAUTRES;
                           while ($bacMain > 0 && isset($result['75'][$i])) {
                             $row = getCandidat($result['75'][$i]); ?>
                             <tr>
@@ -148,8 +148,8 @@ $i = 0;
                           } ?>
 
                           <?php
-                          while ($bacAutres > 0 && isset($result['25'][$i])) {
-                            $row = getCandidat($result['75'][$i]); ?>
+                          while ($bacAutres > 0 && isset($result['25'][$j])) {
+                            $row = getCandidat($result['25'][$j]); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
                               <td><?= $row['cine'] ?></td>
@@ -160,7 +160,7 @@ $i = 0;
                               <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacAutres--;
-                            $i++;
+                            $j++;
                           } ?>
                         </tbody>
                       </table>
@@ -195,13 +195,13 @@ $i = 0;
                             <th> Prénom</th>
                             <th> Bac </th>
                             <th> Moyenne </th>
-                            <th> N° inscription (Confirmer l'inscription) </th>
+                            <th> N° inscription </th>
                           </tr>
                         </thead>
                         <tbody>
                           <?php
-                          $bacMain = $BACMAIN;
-                          $bacAutres = $BACAUTRES;
+                          $bacMain = BACMAIN;
+                          $bacAutres = BACAUTRES;
                           while ($bacMain > 0 && isset($result['75'][$i])) {
                             $row = getCandidat($result['75'][$i]); ?>
                             <tr>
@@ -218,9 +218,8 @@ $i = 0;
                           } ?>
 
                           <?php
-                          while ($bacAutres > 0 && isset($result['25'][$i])) {
-                            $row = getCandidat($result['75'][$i]);
-                            print_r($row); ?>
+                          while ($bacAutres > 0 && isset($result['25'][$j])) {
+                            $row = getCandidat($result['25'][$j]);?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
                               <td><?= $row['cine'] ?></td>
@@ -231,7 +230,7 @@ $i = 0;
                               <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacAutres--;
-                            $i++;
+                            $j++;
                           } ?>
                         </tbody>
                       </table>
@@ -266,13 +265,13 @@ $i = 0;
                             <th> Prénom</th>
                             <th> Bac </th>
                             <th> Moyenne </th>
-                            <th> N° inscription (Confirmer l'inscription) </th>
+                            <th> N° inscription </th>
                           </tr>
                         </thead>
                         <tbody>
                           <?php
-                          $bacMain = $BACMAIN;
-                          $bacAutres = $BACAUTRES;
+                          $bacMain = BACMAIN;
+                          $bacAutres = BACAUTRES;
                           while ($bacMain > 0 && isset($result['75'][$i])) {
                             $row = getCandidat($result['75'][$i]); ?>
                             <tr>
@@ -289,8 +288,8 @@ $i = 0;
                           } ?>
 
                           <?php
-                          while ($bacAutres > 0 && isset($result['25'][$i])) {
-                            $row = getCandidat($result['75'][$i]); ?>
+                          while ($bacAutres > 0 && isset($result['25'][$j])) {
+                            $row = getCandidat($result['25'][$j]); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
                               <td><?= $row['cine'] ?></td>
@@ -301,7 +300,7 @@ $i = 0;
                               <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacAutres--;
-                            $i++;
+                            $j++;
                           } ?>
                         </tbody>
                       </table>
@@ -336,13 +335,13 @@ $i = 0;
                             <th> Prénom</th>
                             <th> Bac </th>
                             <th> Moyenne </th>
-                            <th> N° inscription (Confirmer l'inscription) </th>
+                            <th> N° inscription </th>
                           </tr>
                         </thead>
                         <tbody>
                           <?php
-                          $bacMain = $BACMAIN;
-                          $bacAutres = 7;
+                          $bacMain = BACMAIN;
+                          $bacAutres = BACAUTRES;
                           while ($bacMain > 0 && isset($result['75'][$i])) {
                             $row = getCandidat($result['75'][$i]); ?>
                             <tr>
@@ -359,8 +358,8 @@ $i = 0;
                           } ?>
 
                           <?php
-                          while ($bacAutres > 0 && isset($result['25'][$i])) {
-                            $row = getCandidat($result['75'][$i]);?>
+                          while ($bacAutres > 0 && isset($result['25'][$j])) {
+                            $row = getCandidat($result['25'][$j]);?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
                               <td><?= $row['cine'] ?></td>
@@ -371,7 +370,7 @@ $i = 0;
                               <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacAutres--;
-                            $i++;
+                            $j++;
                           } ?>
                         </tbody>
                       </table>
@@ -401,15 +400,6 @@ $i = 0;
   <?php include("../../components/adminjs.html"); ?>
 
   <script>
-    /*$(document).ready(function() {
-      $('#convertTable').click(function() {
-        var table_content = '<table>';
-        table_content += $('#table_content').html();
-        table_content += '</table>';
-        $('#file_content').val(table_content);
-        $('#convert_form').submit();
-      });
-    });*/
 
     function convert(id) {
       var table_content = '<table>';
