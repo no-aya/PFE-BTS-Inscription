@@ -49,6 +49,14 @@ $user=getUserData();
             </a>
           </li>
           <li class="nav-item menu-items">
+            <a class="nav-link" href="adminAbsence.php">
+              <span class="menu-icon">
+                <i class="mdi mdi-account"></i>
+              </span>
+              <span class="menu-title">Absences</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
             <a class="nav-link" href="adminEmailing.php">
               <span class="menu-icon">
                 <i class="mdi mdi-email"></i>

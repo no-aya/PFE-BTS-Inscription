@@ -46,6 +46,7 @@ $i = 0;
                         <thead>
                           <tr>
                             <th> Code Massar </th>
+                            <th> CINE </th>
                             <th> Nom</th>
                             <th> Prénom</th>
                             <th> Bac </th>
@@ -61,6 +62,7 @@ $i = 0;
                             $row = getCandidat($result['75'][$i]); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
+                              <td><?= $row['cine'] ?></td>
                               <td><?= $row['nom'] ?></td>
                               <td><?= $row['prenom'] ?></td>
                               <td>Bac <?= $row['typeBac'] ?> </td>
@@ -77,10 +79,12 @@ $i = 0;
                             print_r($row); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
-                              <td><?= $row['nom'] ?> <?= $row['prenom'] ?></td>
+                              <td><?= $row['cine'] ?></td>
+                              <td><?= $row['nom'] ?></td>
+                              <td><?= $row['prenom'] ?></td>
                               <td>Bac <?= $row['typeBac'] ?> </td>
                               <td><?= $row['moyenneBac'] ?></td>
-                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiere=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
+                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacAutres--;
                             $i++;
@@ -110,10 +114,12 @@ $i = 0;
                     </div>
                     <div class="table-responsive">
                       <table class="table" id="table_content2">
-                        <thead>
+                      <thead>
                           <tr>
                             <th> Code Massar </th>
-                            <th> Nom complet </th>
+                            <th> CINE </th>
+                            <th> Nom</th>
+                            <th> Prénom</th>
                             <th> Bac </th>
                             <th> Moyenne </th>
                             <th> N° inscription (Confirmer l'inscription) </th>
@@ -127,10 +133,12 @@ $i = 0;
                             $row = getCandidat($result['75'][$i]); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
-                              <td><?= $row['nom'] ?> <?= $row['prenom'] ?></td>
+                              <td><?= $row['cine'] ?></td>
+                              <td><?= $row['nom'] ?></td>
+                              <td><?= $row['prenom'] ?></td>
                               <td>Bac <?= $row['typeBac'] ?> </td>
                               <td><?= $row['moyenneBac'] ?></td>
-                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"#\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
+                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacMain--;
                             $i++;
@@ -138,14 +146,15 @@ $i = 0;
 
                           <?php
                           while ($bacAutres > 0 && isset($result['25'][$i])) {
-                            $row = getCandidat($result['75'][$i]);
-                            print_r($row); ?>
+                            $row = getCandidat($result['75'][$i]); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
-                              <td><?= $row['nom'] ?> <?= $row['prenom'] ?></td>
+                              <td><?= $row['cine'] ?></td>
+                              <td><?= $row['nom'] ?></td>
+                              <td><?= $row['prenom'] ?></td>
                               <td>Bac <?= $row['typeBac'] ?> </td>
                               <td><?= $row['moyenneBac'] ?></td>
-                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"#\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
+                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacAutres--;
                             $i++;
@@ -175,10 +184,12 @@ $i = 0;
                     </div>
                     <div class="table-responsive">
                       <table class="table" id="table_content3">
-                        <thead>
+                      <thead>
                           <tr>
                             <th> Code Massar </th>
-                            <th> Nom complet </th>
+                            <th> CINE </th>
+                            <th> Nom</th>
+                            <th> Prénom</th>
                             <th> Bac </th>
                             <th> Moyenne </th>
                             <th> N° inscription (Confirmer l'inscription) </th>
@@ -192,10 +203,12 @@ $i = 0;
                             $row = getCandidat($result['75'][$i]); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
-                              <td><?= $row['nom'] ?> <?= $row['prenom'] ?></td>
+                              <td><?= $row['cine'] ?></td>
+                              <td><?= $row['nom'] ?></td>
+                              <td><?= $row['prenom'] ?></td>
                               <td>Bac <?= $row['typeBac'] ?> </td>
                               <td><?= $row['moyenneBac'] ?></td>
-                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"#\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
+                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacMain--;
                             $i++;
@@ -207,10 +220,12 @@ $i = 0;
                             print_r($row); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
-                              <td><?= $row['nom'] ?> <?= $row['prenom'] ?></td>
+                              <td><?= $row['cine'] ?></td>
+                              <td><?= $row['nom'] ?></td>
+                              <td><?= $row['prenom'] ?></td>
                               <td>Bac <?= $row['typeBac'] ?> </td>
                               <td><?= $row['moyenneBac'] ?></td>
-                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"#\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
+                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacAutres--;
                             $i++;
@@ -240,10 +255,12 @@ $i = 0;
                     </div>
                     <div class="table-responsive">
                       <table class="table" id="table_content4">
-                        <thead>
+                      <thead>
                           <tr>
                             <th> Code Massar </th>
-                            <th> Nom complet </th>
+                            <th> CINE </th>
+                            <th> Nom</th>
+                            <th> Prénom</th>
                             <th> Bac </th>
                             <th> Moyenne </th>
                             <th> N° inscription (Confirmer l'inscription) </th>
@@ -257,10 +274,12 @@ $i = 0;
                             $row = getCandidat($result['75'][$i]); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
-                              <td><?= $row['nom'] ?> <?= $row['prenom'] ?></td>
+                              <td><?= $row['cine'] ?></td>
+                              <td><?= $row['nom'] ?></td>
+                              <td><?= $row['prenom'] ?></td>
                               <td>Bac <?= $row['typeBac'] ?> </td>
                               <td><?= $row['moyenneBac'] ?></td>
-                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"#\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
+                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacMain--;
                             $i++;
@@ -268,14 +287,15 @@ $i = 0;
 
                           <?php
                           while ($bacAutres > 0 && isset($result['25'][$i])) {
-                            $row = getCandidat($result['75'][$i]);
-                            print_r($row); ?>
+                            $row = getCandidat($result['75'][$i]); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
-                              <td><?= $row['nom'] ?> <?= $row['prenom'] ?></td>
+                              <td><?= $row['cine'] ?></td>
+                              <td><?= $row['nom'] ?></td>
+                              <td><?= $row['prenom'] ?></td>
                               <td>Bac <?= $row['typeBac'] ?> </td>
                               <td><?= $row['moyenneBac'] ?></td>
-                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"#\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
+                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacAutres--;
                             $i++;
@@ -305,10 +325,12 @@ $i = 0;
                     </div>
                     <div class="table-responsive">
                       <table class="table" id="table_content5">
-                        <thead>
+                      <thead>
                           <tr>
                             <th> Code Massar </th>
-                            <th> Nom complet </th>
+                            <th> CINE </th>
+                            <th> Nom</th>
+                            <th> Prénom</th>
                             <th> Bac </th>
                             <th> Moyenne </th>
                             <th> N° inscription (Confirmer l'inscription) </th>
@@ -322,10 +344,12 @@ $i = 0;
                             $row = getCandidat($result['75'][$i]); ?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
-                              <td><?= $row['nom'] ?> <?= $row['prenom'] ?></td>
+                              <td><?= $row['cine'] ?></td>
+                              <td><?= $row['nom'] ?></td>
+                              <td><?= $row['prenom'] ?></td>
                               <td>Bac <?= $row['typeBac'] ?> </td>
                               <td><?= $row['moyenneBac'] ?></td>
-                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"#\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
+                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacMain--;
                             $i++;
@@ -333,14 +357,15 @@ $i = 0;
 
                           <?php
                           while ($bacAutres > 0 && isset($result['25'][$i])) {
-                            $row = getCandidat($result['75'][$i]);
-                            print_r($row); ?>
+                            $row = getCandidat($result['75'][$i]);?>
                             <tr>
                               <td><?= $row['codeMassar'] ?></td>
-                              <td><?= $row['nom'] ?> <?= $row['prenom'] ?></td>
+                              <td><?= $row['cine'] ?></td>
+                              <td><?= $row['nom'] ?></td>
+                              <td><?= $row['prenom'] ?></td>
                               <td>Bac <?= $row['typeBac'] ?> </td>
                               <td><?= $row['moyenneBac'] ?></td>
-                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"#\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
+                              <td><?= ($row['numInscription'] == NULL) ? "<a href=\"confirmerInscription.php?id={$row['codeMassar']}&filiereID=$filiereID\"><div class=\"badge badge-success\">Confirmer l'inscription</div></a>" : $row['numInscription'] ?></td>
                             </tr>
                           <?php $bacAutres--;
                             $i++;

@@ -1,6 +1,7 @@
 <?php
 include("../../data/sqlFunctions.php");
 $result=getLastAnonces();
+$abs=getAbsence();
 include("espaceEtudiantHeader.php");
 ?>
     <div class="content-box content-box-two" >
@@ -27,12 +28,12 @@ include("espaceEtudiantHeader.php");
         </div>
         <div class="absentee-card">
             <p class="news-title">Professeurs en autorisation d’absence</p>
-            <p class="news-date">Dernière mise à jour : Jeudi 07 Janvier 2021</p>
+            <p class="news-date">Dernière mise à jour : 29-06-2021</p>
             <table>
-                <tr><th>Professeur</th><th>Matière</th><th>Durée</th><th>Date</th></tr>
-                <tr><td>Farah Ben</td><td></td><td></td><td></td></tr>
-                <tr><td>Said Fadil</td><td></td><td></td><td></td></tr>
-                <tr><td>Said Fadil</td><td></td><td></td><td></td></tr>
+                <tr><th>Professeur</th><th>Matière</th><th>Date départ</th><th>Date retour</th></tr>
+                <?php while ($row=mysqli_fetch_assoc($abs)) {?>
+                <tr><td><?=$row["nomProf"]?></td><td><?=$row["matiere"]?></td><td><?=$row["dateDep"]?></td><td><?=$row["dateRet"]?></td></tr>
+                <?php } ?>
             </table>
         </div>
     </div>

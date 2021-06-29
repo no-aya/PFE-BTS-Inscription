@@ -422,3 +422,14 @@ function sendEmail($objet, $message, $audience)
         }
     }
 }
+function addAbsence($nom,$matiere,$dateDepart,$dateRetour)
+{
+    $sql="INSERT INTO abscence VALUES(NULL,'$nom','$matiere','$dateDepart','$dateRetour')";
+    include('connexion.php');
+    mysqli_query($connexion,$sql);
+}
+function getAbsence(){
+    $sql="SELECT * FROM abscence WHERE dateRet>CURRENT_DATE()";
+    include('connexion.php');
+    return mysqli_query($connexion,$sql);
+}

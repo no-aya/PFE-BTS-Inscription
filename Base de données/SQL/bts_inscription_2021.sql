@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 13, 2021 at 08:42 PM
+-- Generation Time: Jun 29, 2021 at 06:20 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.11
 
@@ -25,6 +25,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `abscence`
+--
+
+CREATE TABLE `abscence` (
+  `absenceID` int(11) NOT NULL,
+  `nomProf` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `matiere` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `dateDep` date NOT NULL,
+  `dateRet` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `abscence`
+--
+
+INSERT INTO `abscence` (`absenceID`, `nomProf`, `matiere`, `dateDep`, `dateRet`) VALUES
+(1, 'Said Fadil', 'Anglais', '2021-06-27', '2021-07-03');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `administration`
 --
 
@@ -41,7 +62,8 @@ CREATE TABLE `administration` (
 --
 
 INSERT INTO `administration` (`adminID`, `nomComplet`, `email`, `motDePasse`, `roleID`) VALUES
-(1, 'Jane Doe', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 0);
+(1, 'Aya Ait', 'admin@admin.com', '21232f297a57a5a743894a0e4a801fc3', 0),
+(15, 'Halima Ben', 'aitaya1989@gmail.com', '9b7336d7f59c9c1a8bb124e782f8f3d6', 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +111,18 @@ CREATE TABLE `candidature` (
 --
 
 INSERT INTO `candidature` (`candidatureID`, `date`, `typeBac`, `moyenneBac`, `anneeObtention`, `situationCandidature`) VALUES
-(1, '2021-06-12', 'technique', 19.36, 2021, 1);
+(1, '2021-06-12', 'technique', 19.36, 2021, 1),
+(2, '2021-06-28', 'technique', 16, 2018, 0),
+(3, '2021-06-29', 'technique', 16.35, 2018, 1),
+(4, '2021-06-29', 'scientifique', 15.36, 2019, NULL),
+(5, '2021-06-29', 'economique', 17.99, 2020, NULL),
+(6, '2021-06-29', 'technique', 16.15, 2019, NULL),
+(7, '2021-06-29', 'technique', 14.89, 2020, NULL),
+(8, '2021-06-29', 'scientifique', 18.33, 2019, NULL),
+(9, '2021-06-29', 'technique', 16.78, 2019, NULL),
+(10, '2021-06-29', 'economique', 18.99, 2020, NULL),
+(11, '2021-06-29', 'economique', 16.36, 2019, NULL),
+(12, '2021-06-29', 'scientifique', 13.65, 2021, NULL);
 
 -- --------------------------------------------------------
 
@@ -112,7 +145,47 @@ INSERT INTO `choix` (`filiereID`, `candidatureID`, `priorite`, `retenu`) VALUES
 ('MCW', 1, 1, NULL),
 ('MCW', 1, 2, NULL),
 ('MCW', 1, 3, NULL),
-('MCW', 1, 4, NULL);
+('MCW', 1, 4, NULL),
+('MCW', 3, 1, NULL),
+('MCW', 3, 2, NULL),
+('MCW', 3, 3, NULL),
+('MCW', 3, 4, NULL),
+('MCW', 4, 1, NULL),
+('PROD', 4, 2, NULL),
+('MCW', 4, 3, NULL),
+('PROD', 4, 4, NULL),
+('MCW', 5, 1, NULL),
+('PROD', 5, 2, NULL),
+('SE', 5, 3, NULL),
+('CG', 5, 4, NULL),
+('SE', 6, 1, NULL),
+('PROD', 6, 2, NULL),
+('MCW', 6, 3, NULL),
+('MCW', 6, 4, NULL),
+('MCW', 7, 1, NULL),
+('PROD', 7, 2, NULL),
+('SE', 7, 3, NULL),
+('MCW', 7, 4, NULL),
+('CG', 8, 1, NULL),
+('MCW', 8, 2, NULL),
+('MCW', 8, 3, NULL),
+('CG', 8, 4, NULL),
+('MCW', 9, 1, NULL),
+('PROD', 9, 2, NULL),
+('SE', 9, 3, NULL),
+('MCW', 9, 4, NULL),
+('CG', 10, 1, NULL),
+('MCW', 10, 2, NULL),
+('PROD', 10, 3, NULL),
+('CG', 10, 4, NULL),
+('CG', 11, 1, NULL),
+('MCW', 11, 2, NULL),
+('PROD', 11, 3, NULL),
+('SE', 11, 4, NULL),
+('PROD', 12, 1, NULL),
+('MCW', 12, 2, NULL),
+('SE', 12, 3, NULL),
+('CG', 12, 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -132,7 +205,7 @@ CREATE TABLE `dateimportante` (
 
 INSERT INTO `dateimportante` (`dateID`, `Label`, `date`) VALUES
 (1, 'Fin des candidatures', '2021-06-30'),
-(3, 'Fin cand', '2021-06-24');
+(3, 'Fin cand', '2021-06-28');
 
 -- --------------------------------------------------------
 
@@ -155,7 +228,38 @@ CREATE TABLE `document` (
 INSERT INTO `document` (`documentID`, `label`, `type`, `lien`, `candidatureID`) VALUES
 (1, 'image', 'png', 'to be determinated...', 1),
 (2, 'bac', 'png', 'to be determinated...', 1),
-(3, 'recu', 'png', 'to be determinated...', 1);
+(3, 'recu', 'png', 'to be determinated...', 1),
+(4, 'image', 'img', 'gdfhbgfdg', 1),
+(5, 'image', 'png', '../../uploads/3-image.png', 3),
+(6, 'bac', 'png', '../../uploads/3-bac.png', 3),
+(7, 'recu', 'png', '../../uploads/3-recu.png', 3),
+(8, 'image', 'jpg', '../../uploads/4-image.jpg', 4),
+(9, 'bac', 'png', '../../uploads/4-bac.png', 4),
+(10, 'recu', 'png', '../../uploads/4-recu.png', 4),
+(11, 'image', 'jpg', '../../uploads/5-image.jpg', 5),
+(12, 'bac', 'png', '../../uploads/5-bac.png', 5),
+(13, 'recu', 'png', '../../uploads/5-recu.png', 5),
+(14, 'image', 'jpg', '../../uploads/6-image.jpg', 6),
+(15, 'bac', 'png', '../../uploads/6-bac.png', 6),
+(16, 'recu', 'png', '../../uploads/6-recu.png', 6),
+(17, 'image', 'jpg', '../../uploads/7-image.jpg', 7),
+(18, 'bac', 'png', '../../uploads/7-bac.png', 7),
+(19, 'recu', 'png', '../../uploads/7-recu.png', 7),
+(20, 'image', 'jpg', '../../uploads/8-image.jpg', 8),
+(21, 'bac', 'png', '../../uploads/8-bac.png', 8),
+(22, 'recu', 'png', '../../uploads/8-recu.png', 8),
+(23, 'image', 'jpg', '../../uploads/9-image.jpg', 9),
+(24, 'bac', 'png', '../../uploads/9-bac.png', 9),
+(25, 'recu', 'png', '../../uploads/9-recu.png', 9),
+(26, 'image', 'jpg', '../../uploads/10-image.jpg', 10),
+(27, 'bac', 'png', '../../uploads/10-bac.png', 10),
+(28, 'recu', 'png', '../../uploads/10-recu.png', 10),
+(29, 'image', 'jpg', '../../uploads/11-image.jpg', 11),
+(30, 'bac', 'png', '../../uploads/11-bac.png', 11),
+(31, 'recu', 'png', '../../uploads/11-recu.png', 11),
+(32, 'image', 'jpg', '../../uploads/12-image.jpg', 12),
+(33, 'bac', 'png', '../../uploads/12-bac.png', 12),
+(34, 'recu', 'png', '../../uploads/12-recu.png', 12);
 
 -- --------------------------------------------------------
 
@@ -166,8 +270,17 @@ INSERT INTO `document` (`documentID`, `label`, `type`, `lien`, `candidatureID`) 
 CREATE TABLE `email` (
   `emailID` int(11) NOT NULL COMMENT 'Identifiant de l''email',
   `dateEnvoi` date NOT NULL COMMENT 'Date d''envoi de l''email',
-  `description` int(11) NOT NULL COMMENT 'Description de l''objet de l''email'
+  `objet` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'Description de l''objet de l''email',
+  `contenu` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Liste des emails envoyés';
+
+--
+-- Dumping data for table `email`
+--
+
+INSERT INTO `email` (`emailID`, `dateEnvoi`, `objet`, `contenu`) VALUES
+(1, '2021-06-29', 'Hello', 'hithere'),
+(2, '2021-06-29', 'Hello', 'Hi tehre');
 
 -- --------------------------------------------------------
 
@@ -206,7 +319,18 @@ CREATE TABLE `etudiant` (
 --
 
 INSERT INTO `etudiant` (`codeMassar`, `cine`, `nom`, `prenom`, `sexe`, `ville`, `adresse`, `email`, `numInscription`, `filiereID`, `candidatureID`) VALUES
-('G132856989', 'ee9094616', 'Rabi', 'Samad', b'1', 'Marrakech', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'rabisamad@gmail.com', 1, 'MCW', 1);
+('D132291844', 'ee721561', 'ELABDELLAOUI ', 'HANANE', b'1', 'RABAT', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'hanaeFK_12@gmail.com', NULL, NULL, 11),
+('D132747411', 'EE1654984', 'EL MOUSAAIF ', 'MOHAMED', b'0', 'TANGER', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'MOMOMED12@gmail.com', NULL, NULL, 10),
+('D133544984', 'ee7491235', 'AZEDINE ', 'MAJDA', b'1', 'RABAT', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'azadana@gmail.com', NULL, NULL, 6),
+('D134708595', 'ee784563', 'AIT MY HACHEM', 'KHADIJA', b'1', 'CASABLANCA', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'khadijasia@gmail.com', NULL, NULL, 5),
+('D135708038', 'ee909215', 'BALHOUSS', 'SOUAAD', b'1', 'FES', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'as0ra1@gmail.com', NULL, NULL, 7),
+('D138792089', 'EE908492', 'AIT BOUKDIR', 'MOHSSINE', b'0', 'Marrakech', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'MOHSSINE@gmail.com', NULL, NULL, 4),
+('G132856900', 'ee9094616', 'Ait', 'aya', b'1', 'Marrakech', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'ayabug89@gmail.com', NULL, NULL, 2),
+('G132856901', 'ee9094616', 'Ait', 'aya', b'0', 'Marrakech', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'ayabug89@gmail.com', 2, 'MCW', 3),
+('G132856989', 'ee9094616', 'Rabi', 'Samad', b'1', 'Marrakech', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'rabisamad@gmail.com', 1, 'MCW', 1),
+('J137321744', 'ee457634', 'BOUHADIOUI ', 'ASMAE', b'1', 'AGADIR', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'asmaetjoli@gmail.com', NULL, NULL, 9),
+('K135525659', 'ee9094616', 'ELFAROKI', 'MARWANE', b'0', 'Marrakech', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'alimarwan@gmail.com', NULL, NULL, 12),
+('N130171326', 'ee781296', 'BENHAMMOU', 'ISSAM', b'0', 'Marrakech', 'Résidence Hivernage Garden, Rue Camille Cabana, Hivernage', 'Issam_beldi@gmail.com', NULL, NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -264,6 +388,12 @@ CREATE TABLE `visiteur` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `abscence`
+--
+ALTER TABLE `abscence`
+  ADD PRIMARY KEY (`absenceID`);
 
 --
 -- Indexes for table `administration`
@@ -350,10 +480,16 @@ ALTER TABLE `visiteur`
 --
 
 --
+-- AUTO_INCREMENT for table `abscence`
+--
+ALTER TABLE `abscence`
+  MODIFY `absenceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `administration`
 --
 ALTER TABLE `administration`
-  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `adminID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `article`
@@ -365,7 +501,7 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT for table `candidature`
 --
 ALTER TABLE `candidature`
-  MODIFY `candidatureID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant de la candidature', AUTO_INCREMENT=2;
+  MODIFY `candidatureID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant de la candidature', AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `dateimportante`
@@ -377,13 +513,13 @@ ALTER TABLE `dateimportante`
 -- AUTO_INCREMENT for table `document`
 --
 ALTER TABLE `document`
-  MODIFY `documentID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant du document', AUTO_INCREMENT=4;
+  MODIFY `documentID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant du document', AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `email`
 --
 ALTER TABLE `email`
-  MODIFY `emailID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant de l''email';
+  MODIFY `emailID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identifiant de l''email', AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `visiteur`
