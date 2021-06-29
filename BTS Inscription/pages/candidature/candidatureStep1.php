@@ -43,7 +43,7 @@ if (isset($_POST['submit'])){
     if($_POST['cine']=="") $_SESSION['errMSG'][]="Vous n'avez pas saisit votre CNIE";
     else{
         $patern='/^[A-Za-z]?[A-Za-z][0-9]{6}[0-9]*$/';
-        if(!preg_match($patern,$_POST['cine'])) $_SESSION['errMSG'][]="Votre email est invalid";
+        if(!preg_match($patern,$_POST['cine'])) $_SESSION['errMSG'][]="Votre numéro de carte nationale est invalid";
     }
 
     if($_POST['adresse']=="") $_SESSION['errMSG'][]="Vous n'avez pas saisit votre adresse";

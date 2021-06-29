@@ -2,6 +2,9 @@
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
+if(!isset($_SESSION["adminID"])){
+  header("location:adminlogin.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
