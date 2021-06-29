@@ -1,5 +1,7 @@
 <?php 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -66,7 +68,7 @@ session_start();
                     <div class="row">
                       <div class="col-9">
                         <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-2"><?=countDays(1)?></h3>
+                          <h3 class="mb-2"><?php if($countDays>=0) echo $countDays; else echo "0" ?></h3>
                         </div>
                       </div>
                     </div>

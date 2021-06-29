@@ -1,14 +1,17 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 include ("../../data/sqlFunctions.php");
 $message="";
 if(isset($_POST['submit'])){
-  switch (loginAdmin($_POST['email'],$_POST['mdp'],$_POST["remember"])) {
+  switch ($role=loginAdmin($_POST['email'],$_POST['mdp'],$_POST["remember"])) {
     case -1:
       $message="Coordonnées Invalides!";
       break;
     
     default:
+    $_SESSION["roleID"]=$role;
       header("location:adminAcceuil.php");
       break;
     } 

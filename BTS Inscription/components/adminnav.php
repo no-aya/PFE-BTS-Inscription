@@ -48,6 +48,14 @@ $user=getUserData();
               <span class="menu-title">Articles</span>
             </a>
           </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="adminEmailing.php">
+              <span class="menu-icon">
+                <i class="mdi mdi-email"></i>
+              </span>
+              <span class="menu-title">Emails</span>
+            </a>
+          </li>
           <?php if($user['roleID']==0){?>
           <li class="nav-item menu-items">
             <a class="nav-link" href="adminUtilisateurs.php">

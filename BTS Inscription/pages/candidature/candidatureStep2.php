@@ -6,13 +6,12 @@ if(!isset($_SESSION['typeBac'])||!isset($_SESSION['candidatID'])) header("locati
 
 if (isset($_POST['submit'])){
     include('../../data/sqlFunctions.php');
-    $file=explode('.',$_POST['picCandidat']);
-    insertDocument("image",$file[1],"to be determinated...",$_SESSION['candidatID']);
-    $file=explode('.',$_POST['picBac']);
-    insertDocument("bac",$file[1],"to be determinated...",$_SESSION['candidatID']);
-    $file=explode('.',$_POST['picRecu']);
-    insertDocument("recu",$file[1],"to be determinated...",$_SESSION['candidatID']);
-    header("location:candidatureStep3.php");
+    insertDocument("image",$_FILES['picCandidat'],$_SESSION['candidatID']);
+    insertDocument("bac",$_FILES['picBac'],$_SESSION['candidatID']);
+    insertDocument("recu",$_FILES['picRecu'],$_SESSION['candidatID']);
+    if( !isset($_SESSION['errMSG'])){
+        header("location:candidatureStep3.php");
+    }
 }
 
 ?>
@@ -49,7 +48,7 @@ if (isset($_POST['submit'])){
                             unset($_SESSION['errMSG']);
                         } ?>
                         </p>
-                        <form id="msform"  method="post">
+                        <form id="msform"  method="post" enctype='multipart/form-data'>
                             <div class="fieldset fieldset-active">
                                 <div class="form-card">
                                     <div class="row">

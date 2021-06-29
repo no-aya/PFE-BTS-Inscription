@@ -1,5 +1,9 @@
 <?php 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+include_once ("../../data/sqlFunctions.php");
+checkUser(1);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,7 +15,6 @@ session_start();
     <div class="container-scroller">
       <!-- partial:partials/_sidebar.html -->
       <?php include("../../components/adminnav.php");
-       $countDays=countDays(3);
       ?>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">

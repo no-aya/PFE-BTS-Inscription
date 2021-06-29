@@ -32,7 +32,7 @@ session_destroy();
                         <h2 id="heading" class="page-title">Pré-inscription</h2>
                         <form id="msform" method="post" action="candidatureForm.php">
                             <!-- fieldsets -->
-                            <fieldset>
+                            <fieldset style="border: none;">
                                 <script>
                                     
                                 </script>

@@ -1,7 +1,10 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 ob_start();
 include_once ("../../data/sqlFunctions.php");
+checkUser(0);
   $result=getUsers();
   $roles=getRoles();
 ?>

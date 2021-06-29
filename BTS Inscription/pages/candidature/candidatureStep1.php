@@ -26,7 +26,7 @@ if (isset($_POST['submit'])){
     include('../../data/sqlFunctions.php');
     if($_POST['codeMassar']=="") $_SESSION['errMSG'][]="Vous n'avez pas saisit votre codeMassar";
     else{
-        if(checkCodeMassar($_POST['codeMassar'])) $_SESSION['errMSG'][]= "Vous êtes déjà un candidat! Connectez vous pour accéder à votre candidature.";
+        if(checkCodeMassar($_POST['codeMassar'])) $_SESSION['errMSG'][]= "Vous êtes déjà un candidat!";
         else {
             $patern='/^[A-Za-z][0-9]{9}$/';
             if(!preg_match($patern,$_POST['codeMassar'])) $_SESSION['errMSG'][]="Votre code Massar est invalid";
@@ -34,7 +34,6 @@ if (isset($_POST['submit'])){
     }
     if(trim($_POST['lname'])=="") $_SESSION['errMSG'][]="Vous n'avez pas saisit votre nom";
     if(trim($_POST['fname'])=="") $_SESSION['errMSG'][]="Vous n'avez pas saisit votre prénom";
-    if($_POST['pwd']=="") $_SESSION['errMSG'][]="Vous n'avez pas saisit votre mot de passe";
     if(trim($_POST['email'])=="") $_SESSION['errMSG'][]="Vous n'avez pas saisit votre email";
     else{
         $patern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';

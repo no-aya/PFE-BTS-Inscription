@@ -1,5 +1,9 @@
 <?php 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+include_once ("../../data/sqlFunctions.php");
+checkUser(1);
 ?>
 <!DOCTYPE html>
 <html lang="fr">

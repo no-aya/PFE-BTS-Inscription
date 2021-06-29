@@ -1,5 +1,9 @@
 <?php 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+include_once ("../../data/sqlFunctions.php");
+checkUser(1);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -76,12 +80,14 @@ session_start();
                             </div>
                             <?php } ?>
                         </div>
+                        <?php if ($countDays >= 0) { ?>
                         <div class="row justify-content-end">
                             <div class="col-md-3">
                                 <a href="appCandidat.php?id=<?=$id?><?=(isset($_GET['assist']))?"&assist=1":""?>"><div class="badge badge-success">Approuver</div></a>
                                 <a href="rejCandidat.php?id=<?=$id?><?=(isset($_GET['assist']))?"&assist=1":""?>""><div class="badge badge-outline-danger">Rejeter</div></a>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
                     </div>
                     </div>

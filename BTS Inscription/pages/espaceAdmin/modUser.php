@@ -1,7 +1,10 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 ob_start();
 include_once ("../../data/sqlFunctions.php");
+checkUser(0);
   $admin=getUser($_GET['id']);
   $roles=getRoles();
 ?>
@@ -37,15 +40,19 @@ include_once ("../../data/sqlFunctions.php");
                         </div>
                       </div>
                       <div class="form-group row">
+                      <?php if($admin['roleID']!=0){?>
                         <label for="exampleFormControlSelect1" class="col-sm-3 col-form-label">Rôle</label>
                         <div class="col-sm-9">
-                          <select class="form-control" id="exampleFormControlSelect" name="role" <?php if($admin['roleID']==0) echo "disabled" ?>>
+                          <select class="form-control" name="role" id="exampleFormControlSelect">
                             <?php while($row=mysqli_fetch_assoc($roles)){ ?>
                             <option value="<?=$row['roleID']?>"<?php if($row['roleID']==$admin['roleID']) echo "selected" ?>> <?=$row['Label']?></option>
                             <?php }?>
                           </select>
+                          
                         </div>
+                        <?php }else{ $_POST['role']=0; }?>
                       </div>
+                      
                       <div class="form-group row">
                         <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Mot de passe</label>
                         <div class="col-sm-9">
@@ -59,15 +66,24 @@ include_once ("../../data/sqlFunctions.php");
                     if(isset($_POST["submit"])){
                         $sql="UPDATE administration SET ";
                         if($_POST['nom']!=$admin['nomComplet']){
-                          $sql.="nomComplet='".$_POST['nom']."' ,";
+                          $sql.="nomComplet='".$_POST['nom']."' ";
                         }
                         if($_POST['email']!=$admin['email']){
-                          $sql.="email='".$_POST['email']."' ,";
+                          if (substr($sql, -1) != 'SET ') {
+                            $sql.=",";
+                          }
+                          $sql.="email='".$_POST['email']."'";
                         }
                         if(!empty($_POST['mdp'])){
-                          $sql.="motDePasse='".md5($_POST['mdp'])."' ,";
+                          if (substr($sql, -4) != 'SET ') {
+                            $sql.=",";
+                          }
+                          $sql.="motDePasse='".md5($_POST['mdp'])."'";
                         }
-                        $sql.="roleID=".$_POST['role'];
+                        if (substr($sql, -4) != 'SET ') {
+                          $sql.=",";
+                        }
+                        $sql.=" roleID=".$_POST['role'];
                         $sql.=" WHERE adminID=".$admin['adminID'];
                         updateUser($sql);
                         header("Location:adminUtilisateurs.php");
