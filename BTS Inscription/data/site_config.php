@@ -1,6 +1,6 @@
 <?php
 //Set a date to finish applying
-$countDays=countDays(1);
+$countDays=countDays(3);
 
 //Set number of seats for main bacType and autres
 define("BACMAIN", 23);

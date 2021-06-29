@@ -78,6 +78,7 @@ $j=0; //for bac autres
                           } ?>
 
                           <?php
+                          if($i<BACMAIN) $bacAutres+=(BACMAIN-$i);
                           while ($bacAutres > 0 && isset($result['25'][$j])) {
                             $row = getCandidat($result['25'][$j]);?>
                             <tr>
@@ -148,6 +149,7 @@ $j=0; //for bac autres
                           } ?>
 
                           <?php
+                          if($i<BACMAIN) $bacAutres+=(BACMAIN-$i);
                           while ($bacAutres > 0 && isset($result['25'][$j])) {
                             $row = getCandidat($result['25'][$j]); ?>
                             <tr>
@@ -218,6 +220,7 @@ $j=0; //for bac autres
                           } ?>
 
                           <?php
+                          if($i<BACMAIN) $bacAutres+=(BACMAIN-$i);
                           while ($bacAutres > 0 && isset($result['25'][$j])) {
                             $row = getCandidat($result['25'][$j]);?>
                             <tr>
@@ -288,6 +291,7 @@ $j=0; //for bac autres
                           } ?>
 
                           <?php
+                          if($i<BACMAIN) $bacAutres+=(BACMAIN-$i);
                           while ($bacAutres > 0 && isset($result['25'][$j])) {
                             $row = getCandidat($result['25'][$j]); ?>
                             <tr>
@@ -358,6 +362,7 @@ $j=0; //for bac autres
                           } ?>
 
                           <?php
+                          if($i<BACMAIN) $bacAutres+=(BACMAIN-$i);
                           while ($bacAutres > 0 && isset($result['25'][$j])) {
                             $row = getCandidat($result['25'][$j]);?>
                             <tr>
