@@ -2,6 +2,8 @@
 session_start();
 ob_start();
 include ('../../data/connexion.php');
+ini_set('display_errors', 0);
+error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 if(!isset($_SESSION['typeBac'])) header("location:candidatureBac.php");
 else{
     switch ($_SESSION['typeBac']) {

@@ -1,6 +1,8 @@
 <?php 
 session_start();
 ob_start();
+ini_set('display_errors', 0);
+error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 include ('../../data/connexion.php');
 if(!isset($_SESSION['typeBac'])||!isset($_SESSION['candidatID'])) header("location:candidatureBac.php");
 
